@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="ibrothergang's blog">
 <meta property="og:description" content="现在做 Android 开发的，基本上都是在用 AS 打包。相信里面也有不少人对 gradle 的信息不是很清楚，现在记录下，以免遗忘。">
 <meta property="og:image" content="http://ohlhj8z4i.bkt.clouddn.com/gradle.png">
-<meta property="og:updated_time" content="2017-08-30T01:24:48.000Z">
+<meta property="og:updated_time" content="2017-08-30T06:15:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio 中的 Gradle 配置说明（一）">
 <meta name="twitter:description" content="现在做 Android 开发的，基本上都是在用 AS 打包。相信里面也有不少人对 gradle 的信息不是很清楚，现在记录下，以免遗忘。">
@@ -359,23 +359,23 @@
         <p><img src="http://ohlhj8z4i.bkt.clouddn.com/gradle.png" alt="gradle"><br>现在做 Android 开发的，基本上都是在用 AS 打包。相信里面也有不少人对 gradle 的信息不是很清楚，现在记录下，以免遗忘。</p>
 <a id="more"></a>
 <p>先来看一段一般的配置代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">compileSdkVersion <span class="number">25</span></div><div class="line">buildToolsVersion <span class="string">'25.0.0'</span></div><div class="line"></div><div class="line">defaultConfig &#123;</div><div class="line">    applicationId <span class="string">"com.android.demo"</span></div><div class="line">    minSdkVersion <span class="number">14</span></div><div class="line">    targetSdkVersion <span class="number">25</span></div><div class="line">    versionCode <span class="number">1</span></div><div class="line">    versionName <span class="string">"1.0"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>compileSdkVersion</p>
+<p><code>compileSdkVersion</code></p>
 <blockquote>
 <p>用来编译应用的 Android API 版本</p>
 </blockquote>
-<p>buildToolsVersion</p>
+<p><code>buildToolsVersion</code></p>
 <blockquote>
 <p>构建工具和编译器使用的版本号</p>
 </blockquote>
-<p>minSdkVersion</p>
+<p><code>minSdkVersion</code></p>
 <blockquote>
 <p>用来配置运行应用的最小 API 级别, 低于该 API 版本的系统会提示无法运行该应用</p>
 </blockquote>
-<p>targetSdkVersion</p>
+<p><code>targetSdkVersion</code></p>
 <blockquote>
 <p>用于通知系统，该应用已经在某特定 Android 版本通过测试，从而操作系统不必启用任何向前兼容的行为。这和我们之前看到的 compileSdkVersion 没有任何关系。</p>
 </blockquote>
-<p>applicationId</p>
+<p><code>applicationId</code></p>
 <blockquote>
 <p>该属性覆盖了 manifest 文件中的 packagename。<br> Gradle 作为默认的 Android 构建系统<br>之前<br>packagename 作用</p>
 <ol>
@@ -392,11 +392,11 @@
 <p>以前一般会先出免费版本，之后通过修改 packname，再出一个付费版本。有的人可能会说这不是很简单吗？这里的关键点是一旦你修改 packagename 后，所有引用资源的地方，相应的包名称也需要同时修改。这会对代码比较的时候产生极大的不便。</p>
 <p>所以 Android 工具团队解耦了即作为唯一标志又作为资源包名这两个功能。这样你构建两个版本的时候，只需要修改 applicationId 就可以，所有的资源的包名都不需要修改。</p>
 </blockquote>
-<p>versionCode</p>
+<p><code>versionCode</code></p>
 <blockquote>
 <p>作为应用市场的版本唯一标识码，一般是从 1 开始，后续的版本更新，versionCode 必须大于之前的。<br>这个对用户一般不可见。<br>这个会覆盖 manifest 文件中对应的属性。</p>
 </blockquote>
-<p>versionName</p>
+<p><code>versionName</code></p>
 <blockquote>
 <p>版本号。这个一般就是告诉用户我当前的版本号是多少。比如：0.8.0，1.0.1，2.1.11等等。这个对用户是可见的，和 versionCode 没有对应关系。但是一般版本更新的时候 versionName 也会大于之前的。<br>这个会覆盖 manifest 文件中对应的属性。</p>
 </blockquote>
