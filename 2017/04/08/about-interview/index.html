@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="站在面试官的角度告诉你怎么样找工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈谈「面试」那些事">
+<meta property="og:url" content="http://www.ibrothergang.com/2017/04/08/about-interview/index.html">
+<meta property="og:site_name" content="ibrothergang's blog">
+<meta property="og:description" content="站在面试官的角度告诉你怎么样找工作">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8883b2b4d506d1a7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8a68a21857b7e31a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-04-08T03:42:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谈谈「面试」那些事">
+<meta name="twitter:description" content="站在面试官的角度告诉你怎么样找工作">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2159159-8883b2b4d506d1a7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.ibrothergang.com/2017/04/08/about-interview/"/>
+
+
+
+
+
+  <title>谈谈「面试」那些事 | ibrothergang's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ibrothergang's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">生命在于折腾</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/04/08/about-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ibrothergang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://wt-box.worktile.com/public/5b65c9e8-9578-46ae-8378-89eab1f77872">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">谈谈「面试」那些事</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T11:38:55+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/2159159-8883b2b4d506d1a7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="面试"></p>
+<blockquote>
+<p>站在面试官的角度告诉你怎么样找工作</p>
+</blockquote>
+<a id="more"></a>
+<p>年前一段时间，公司业务调整，人员上需要新的补充，迫于环境的因素（大环境的不景气以及年底找工作的不多），一直没有招到合适的人员。到年后才终于招到合适的人员。回头看整个过程，中间面试的同学应该也有一批，今天就站在面试官的角度谈谈如何面试。</p>
+<p>由于之前一直从事的是技术岗位，也是由于人员的扩充逐步走上了偏管理的岗位，所以本文讲到的东西带有一定的主观臆断，大家可以批判的看待和吸收。</p>
+<h3 id="先谈谈大环境"><a href="#先谈谈大环境" class="headerlink" title="先谈谈大环境"></a>先谈谈大环境</h3><p>每年公司都会因为业务需要招人。但是去年和今年情况已经发生了很大的改变。</p>
+<p>去年的这个时候，移动开发这块的需求相对来说还是比较大的，我们公司也是招了一段时间才招到合适的人员。而且其实也处于抢的状态，好几个已经提供 offer 的兄弟就是因为还有更好的公司给 offer 了，就离开去了另外的公司。某直聘上的信息也是没有太多新鲜的简历，很多都通过内推的形式消化了，所以这种情况下面试的要求会相对来说降低一点，毕竟先把人招到干活要紧。</p>
+<p>但是去年 11 月份，由于公司业务调整，又需要增加人员。这个时候再去看某直聘上的信息，充斥了很多应届的、大专的开发人员，而且这些人员的占比都比较大，说明整体的就业环境不是那么乐观。而且去年下半年的资本寒冬导致了很多的初创企业因为资金链断裂而破产，这些都是实实在在发生在身边的事情。所以，在那样的情况下，招聘的要求就高了，不是会点基础开发，有一两年经验的人就可以有机会面试的，需要的都是中高级的开发人员</p>
+<p>所以，目前有工作的兄弟，尽量不要裸辞，特别是工作一两年的，市场上对这部分人都已经饱和了，现在是买方市场，需要买方来挑选那些性价比更好的人。</p>
+<h3 id="技能是否符合"><a href="#技能是否符合" class="headerlink" title="技能是否符合"></a>技能是否符合</h3><p>投简历之前最好是能看下对方公司的具体要求。当然你也可以海投，但是海投的成功率往往比较低。有针对性的投简历给那些职位要求和自己比较相符的公司，得到面试的机会会更大一点。</p>
+<p>比如之前我发布的职位要求是:</p>
+<blockquote>
+<ul>
+<li>做过组件化的开发，熟悉组件模块的构建方式</li>
+<li>有过大型产品重构的经验，知道如何将各个模块代码进行解耦</li>
+<li>做过中间件的开发，熟悉大部分有名的第三方开源框架</li>
+<li>了解常用的设计模式，熟悉面向对象的编程，熟练掌握封装，继承和接口设计</li>
+<li>…</li>
+</ul>
+</blockquote>
+<p>从以上的信息中可以看出，这次的职位招聘需要的是组件方面的开发，没有太多的涉及 UI 和 业务逻辑的技能。所以如果你的简历上写着的是精通各种布局，熟练绘制自定义 UI 控件等等，我基本上也是瞄一眼，不太会过多的关注这份简历，也没有太多面试的欲望。</p>
+<p>所以如果你对一家公司感兴趣，简历上有针对性的突出一下他们需要的技能，这样获得面试的几率就增加了。</p>
+<h3 id="简历怎么写"><a href="#简历怎么写" class="headerlink" title="简历怎么写"></a>简历怎么写</h3><p>那么简历怎么写？</p>
+<p>技术方面，请老老实实的书写。「知道」的就是「知道」，「了解」的就是「了解」。不要把不知道的写上去，也不要把「熟悉」的写成「精通」。写代码的人都是需要逻辑思维比较强的，这种弄虚作假的东西本身就不符合计算机科学里的 0 和 1 的概念。而且作为面试官，首先问你的肯定是简历上写到的东西，技术层面的东西其实你不太好做假，特别是面试的人刚好对你简历上写的东西都比较了解，一问就露相了。</p>
+<p>那么哪些东西可以虚一点呢？比如性格啦，爱好啦，特长的之类的。这些东西往往是 HR 那边比较关注的，因为 HR 不怎么懂技术，只能从这些侧面去了解你，看你这方面是不是符合岗位价值观方面的要求。</p>
+<p>一般技术驱动型的公司，简历都是技术主管直接看技术。所以最好在技术方面老老实实的写，避免无中生有以及画蛇添足。不然面试官觉得简历 OK ,结果过来一面又跟简历差距很大，导致浪费双方的时间。</p>
+<h3 id="面试前做什么"><a href="#面试前做什么" class="headerlink" title="面试前做什么"></a>面试前做什么</h3><p>有些人得到面试的通知后，什么都没做就屁颠屁颠的跑过来面试了。除非你真的很牛逼，刚好是能填补技术人员的空白情况，否则的话，还是好好准备下吧。</p>
+<p>举个例子。</p>
+<p>我在面试的过程中，有很多人都是没用过我们公司产品就过来面试了。这是对自己，也是对公司的不负责任。你去一个公司面试，绝大多数情况下应该是奔着要去这家公司上班的目标去的吧？你起码得了解下这家公司是干什么的吧？起码得用下这家公司的产品是不是你希望做的吧？</p>
+<p>既不了解公司，也没用过公司产品，这样的人跑过来面试，我的印象分就给你打了好几折。如果后面还没有什么技术上的亮点的话，基本上就没戏了。</p>
+<p>所以，在得到面试机会的时候，一定要了解下这家公司是做什么的？有什么样的产品？甚至可以打听下公司的团队是怎么样的？这些了解的越清楚，越能决定你是否真的想去这家公司，也越能在面试过程中占优势。</p>
+<p>曾经我们公司有个来面试运营的，写了很长的一份产品使用报告给我们的面试官，这个不是面试官要求的，但是她做了。这样积极主动的人，面试官怎么会不多看一眼，多关注一点，多一点好感呢。最终，这位同学也顺利入职了，而且现在做的挺好。</p>
+<h3 id="如何表现自己"><a href="#如何表现自己" class="headerlink" title="如何表现自己"></a>如何表现自己</h3><p>除了技术，面试过程中尽量展示自己的优势，尽量让自己看起来充满活力。特别是一些初创企业，里面的员工年龄层次都是比较低的，都是一帮热血青年在创业，谁也不希望进来一个死气沉沉的员工影响大家的士气。</p>
+<p>热情、开朗、活动、机灵，这些都是你在面试过程中的加分项，这些都是和那些初创企业或者两三年企业的气质是相符合的。有些人虽然技术不怎么样，但是机灵好学，和整个公司，和技术主管的气场比较符合，也就顺利的入职了。</p>
+<p>学习技术不难，但是要改变一个人的性格，那就不是一件容易的事情了。所以很多时候只要好学，其他的都好处理。</p>
+<h3 id="我的选择标准"><a href="#我的选择标准" class="headerlink" title="我的选择标准"></a>我的选择标准</h3><p>最后，谈谈我在面试过程中的一些标准。</p>
+<p><strong>1. 工作过的公司</strong></p>
+<p>最好是一些比较有名气的互联网工作过，其次就是创业型的，国企基本上要减分。大公司工作过，知道整套的流程，相对来说上手就比较容易。创业型的话就会有比较全面的要求，容易锻炼人。</p>
+<p><strong>2. 学校出身</strong></p>
+<p>如果公司不好，那就通过学校出身来筛选。好学校的人，思维方式和眼界都会有所不一样。当然也不排除学校一般但是能力强的，这个一般也会在简历上和聊得过程中反映出来。所以学校这一项不是绝对的，是个加分项。</p>
+<p><strong>3. 简历上有亮点</strong></p>
+<p>这个的话就是技术层面了，最好不要做过太多的项目（特别是短期的），一但多了难免会做重复性的工作，接触的东西也相对比较窄。简历上最好有一两点有深度的技能描述，这会让面试官觉得你是个喜欢专研的人。</p>
+<p><strong>4. 项目开发有一定的持续性</strong></p>
+<p>开发周期上不太希望是2，3个月就完成一个产品的，和我们公司长期的产品线不太符合。</p>
+<p>好了，就这些吧，希望对大家有帮助。</p>
+<p>关注微信公众号「扯淡笔记」，看我扯淡！<br><img src="http://upload-images.jianshu.io/upload_images/2159159-8a68a21857b7e31a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="扯淡笔记"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/29/aop-series-one/" rel="next" title="AOP 系列一">
+                <i class="fa fa-chevron-left"></i> AOP 系列一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/11/fall-in-love/" rel="prev" title="你会爱上它吗？">
+                你会爱上它吗？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://wt-box.worktile.com/public/5b65c9e8-9578-46ae-8378-89eab1f77872"
+               alt="ibrothergang" />
+          <p class="site-author-name" itemprop="name">ibrothergang</p>
+           
+              <p class="site-description motion-element" itemprop="description">将来的你一定会感激现在拼命的自己</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/ || archive">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ibrothergang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:ibrothergang@gmail.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/ibrothergang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/ibrothergang" target="_blank" title="FB Page">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                    
+                      FB Page
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先谈谈大环境"><span class="nav-number">1.</span> <span class="nav-text">先谈谈大环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技能是否符合"><span class="nav-number">2.</span> <span class="nav-text">技能是否符合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简历怎么写"><span class="nav-number">3.</span> <span class="nav-text">简历怎么写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试前做什么"><span class="nav-number">4.</span> <span class="nav-text">面试前做什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何表现自己"><span class="nav-number">5.</span> <span class="nav-text">如何表现自己</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的选择标准"><span class="nav-number">6.</span> <span class="nav-text">我的选择标准</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 年 1 月 &mdash; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ibrothergang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
