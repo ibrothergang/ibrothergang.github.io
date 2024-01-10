@@ -1,38 +1,322 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ibrothergang.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最近和兄弟们闲聊，聊到一个瓶颈的问题。开发 3 年多了，做过的项目和产品也有好几个了，感觉移动端的知识基本也都了解了，最近好像遇到了瓶颈，感觉不知道如何提升了。体现在跟别人技术交流的过程中，大方向业务层面的东西基本没有什么问题，可是一旦就某一点深聊的时候，发现自己知识点好像还是停留在表面，不能深入其中。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="恭喜你，遇到瓶颈了">
+<meta property="og:url" content="http://www.ibrothergang.com/2018/05/10/bottleneck/index.html">
+<meta property="og:site_name" content="ibrothergang&#39;s blog">
+<meta property="og:description" content="最近和兄弟们闲聊，聊到一个瓶颈的问题。开发 3 年多了，做过的项目和产品也有好几个了，感觉移动端的知识基本也都了解了，最近好像遇到了瓶颈，感觉不知道如何提升了。体现在跟别人技术交流的过程中，大方向业务层面的东西基本没有什么问题，可是一旦就某一点深聊的时候，发现自己知识点好像还是停留在表面，不能深入其中。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/5/10/1634a425041081f7?w=900&h=500&f=jpeg&s=363044">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/4/22/162edc9c1949449a?w=258&h=258&f=jpeg&s=27696">
+<meta property="article:published_time" content="2018-05-10T14:50:08.000Z">
+<meta property="article:modified_time" content="2018-06-28T13:42:11.157Z">
+<meta property="article:author" content="ibrothergang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/5/10/1634a425041081f7?w=900&h=500&f=jpeg&s=363044">
 
 
-{% block content %}
+<link rel="canonical" href="http://www.ibrothergang.com/2018/05/10/bottleneck/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.ibrothergang.com/2018/05/10/bottleneck/","path":"2018/05/10/bottleneck/","title":"恭喜你，遇到瓶颈了"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>恭喜你，遇到瓶颈了 | ibrothergang's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ibrothergang's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命在于折腾</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C%E7%9A%84%E7%93%B6%E9%A2%88%EF%BC%881-2-%E5%B9%B4%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">1. 工作经验的瓶颈（1~2 年）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E7%9A%84%E7%93%B6%E9%A2%88%EF%BC%882-3-%E5%B9%B4%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">2. 项目管理的瓶颈（2~3 年）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8A%80%E6%9C%AF%E6%B7%B1%E5%BA%A6%E7%9A%84%E7%93%B6%E9%A2%88%EF%BC%883-5-%E5%B9%B4%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3. 技术深度的瓶颈（3~5 年）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%81%8C%E4%B8%9A%E8%BD%AC%E5%9E%8B%E7%9A%84%E7%93%B6%E9%A2%88%EF%BC%885-%E5%B9%B4%E4%BB%A5%E4%B8%8A%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">4. 职业转型的瓶颈（5 年以上）</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ibrothergang</p>
+  <div class="site-description" itemprop="description">将来的你一定会感激现在拼命的自己</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2018/05/10/bottleneck/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="恭喜你，遇到瓶颈了 | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          恭喜你，遇到瓶颈了
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-05-10 22:50:08" itemprop="dateCreated datePublished" datetime="2018-05-10T22:50:08+08:00">2018-05-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2018-06-28 21:42:11" itemprop="dateModified" datetime="2018-06-28T21:42:11+08:00">2018-06-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="https://user-gold-cdn.xitu.io/2018/5/10/1634a425041081f7?w=900&h=500&f=jpeg&s=363044"><br>最近和兄弟们闲聊，聊到一个瓶颈的问题。开发 3 年多了，做过的项目和产品也有好几个了，感觉移动端的知识基本也都了解了，最近好像遇到了瓶颈，感觉不知道如何提升了。体现在跟别人技术交流的过程中，大方向业务层面的东西基本没有什么问题，可是一旦就某一点深聊的时候，发现自己知识点好像还是停留在表面，不能深入其中。</p>
+<span id="more"></span>
+
+<p>既然聊到，索性整理了这篇文章。因为自己也是从一个普通的开发人员过来的，站在我的角度，聊一聊职业或者工作生涯中的一些困惑。因为个人技术栈的原因，这里只举 Android 端的情况。那些大牛程序员不按套路出牌，不在讨论范围。</p>
+<p>其实需要恭喜你，当你意识到遇到了技术或者发展的瓶颈，感到比较困惑时，表明你来到了工作或者职业的一个分界点，一旦突破瓶颈，你又会达到另外一个境界。这个很像长跑，长跑的人在跑步的过程中都会出现几个极点。到极点的时候你会觉得腿特别沉，虽然有力气，但是就是感觉抬不动腿。一般的人可能到了极点之后就放弃了，但是有经验的人到了极点后，他会慢慢的调整，突破这个极点。突破之后，跑步就变成了一个机械的过程，甚至不需要去关心是否有在用力，整个腿步肌肉会自动带着你往前跑。也就是说，这时候达到了另外一个境界。</p>
+<p>无论是工作还是人生，我们的成长过程就像是在不断攀登一座巨大的山峰。如果山脚代表你出生的那一刻，那么山顶代表你死亡的那一刻。而你遇到瓶颈的时候，犹如你爬到了山峰的某一层，你发现似乎没有可以攀爬的地方，无法再往上。每一层都会有很多人，你要做的就是利用你之前的经验、知识、认知，去发现你的落脚点，爬上去。这时候你就又达到了一个全新的高度。</p>
+<p>所以，遇到瓶颈不用太慌，你甚至应该为即将遇见全新的自己而窃喜。</p>
+<p>遇到瓶颈后的困惑是自然的，大部分是因为不了解产生瓶颈的原因，当你了解了之后，一切也就那么回事。</p>
+<p>程序员，一般会经历几个瓶颈（时间段）：</p>
+<h3 id="1-工作经验的瓶颈（1-2-年）"><a href="#1-工作经验的瓶颈（1-2-年）" class="headerlink" title="1. 工作经验的瓶颈（1~2 年）"></a>1. 工作经验的瓶颈（1~2 年）</h3><p>这个阶段刚刚学校毕业，带着书本里的知识，投入到了工作当中，除了一些研究性的工作，大部分的工作会跟着产品的业务线走。这时候你会发现很多东西和学校里学习的有很大差别。这时候的瓶颈，是实际工作经验的缺乏。但是突破的方法也很简单，学就是了。难度也不大，因为这时候的你，应该是学习速度最快的时候。对于很多的业务内容，和书本的知识不太一样，会有很强的新鲜感。书本更多传授的是理论知识，而公司的项目和产品要解决的大部分是工程问题。这是一个可以充分把理论的东西结合实践的阶段，你终于发现了学校里学习的那些东西的真正用处。</p>
+<h3 id="2-项目管理的瓶颈（2-3-年）"><a href="#2-项目管理的瓶颈（2-3-年）" class="headerlink" title="2. 项目管理的瓶颈（2~3 年）"></a>2. 项目管理的瓶颈（2~3 年）</h3><p>经过了第一个时间段，如果产品本身比较好，基本上移动端 Android&#x2F;iOS 的边边角角都会涉及到。UI、网络、数据库、安全、适配、性能优化、第三方库的使用等等。这时候的挑战会慢慢从技术上变成项目管理上。因为这个时候你对业务比较了解，很多的技术也基本掌握了，会自然的承担部分项目管理的角色。这会是另外一个挑战，从跟机器打交道变成了和人打交道。这时候考虑的不一定是要把某一块技术做的多好，而是需要综合各个业务，达到项目整体上的最优。</p>
+<p>比如项目的前期，时间是第一位的。首要的任务是如何在最短的时间内产出最小可行性产品（Minimun Variable Product：MVP）。质量和代码的架构重要性就会相对变低。最主要的是考虑如何最快的把产品推出去。但是，等 MVP 验证通过后，就需要不断迭代，一方面优化功能，一方面需要偿还之前快速开发欠下的技术债。</p>
+<h3 id="3-技术深度的瓶颈（3-5-年）"><a href="#3-技术深度的瓶颈（3-5-年）" class="headerlink" title="3. 技术深度的瓶颈（3~5 年）"></a>3. 技术深度的瓶颈（3~5 年）</h3><p>做了很多的产品，项目管理也做过了。这时候会面临几个抉择，继续做技术还是转管理，还是拓展其他的职业。对于那部分技术上想要继续深入的同学就会有这种困惑。因为做了很多的项目，或者在摸个产品或者项目中做了很多的功能，大部分的知识点都覆盖到了。但是由于平时主要还是围绕业务展开，所以潜意识里是解决了what的问题。比如数据库会选用 GreenDao，也会使用 SQLite，网络会使用 OKHttp + Retrofit，图片会使用 Glide 或者 Frasco 等等，这个阶段很多的时候我们会因为业务二陷入怎么用的阶段。这也是为什么大家觉得好像各个方面都懂一些，但是深度不够的原因。怎么突破，需要去了解它是如何实现的，有哪些小的功能模块组成。</p>
+<p>了解的时候不要贪多，有一句话形容一些读书人：买书如山倒，读书如抽丝。同样也可以形容开发对技术的态度。不能想着这也要了解，那也要明白。一个人的精力有限，就像做产品，需要找一两项核心的功能去深入打磨，而不是所有的功能都做一遍。</p>
+<p>怎么去找那个点。根据自己的爱好。一句话，你对哪方面感兴趣，或者目前你擅长哪块，就深入下去。</p>
+<p>举个例子，有的人喜欢 UI，那么布局，动画，事件这些基本的东西肯定是了解的。这样的话就是属于第一个阶段了。第二个阶段，你需要关注一些自定的 UI ，需要了解 View 的绘制过程，熟悉canvas，熟悉paint，对于一些比较有意思的 UI ，能够仿写。开始关注性能方面的东西。如何能够减少绘制次数，如何减少内存使用等等。第三阶段，就要从源码入手，去了解背后实现的原理，比如 TextView 到底是如何实现绘制在屏幕上的，都做了那些优化。经过这三个阶段，基本上 UI 相关的东西就没有什么能够难倒你了。</p>
+<p>在第三个阶段，虽然看似只在某一个点深入了解，但是需要补充很多相关的边缘知识进来。比如说设计模式，GPU 的工作方式，算法等等，这个过程也就完成了从点到面的扩展。相信突破这个瓶颈，跟别人聊起技术，再也不会觉得自己还是那个什么都懂一点，又好像什么都不够深入的工程师了。</p>
+<h3 id="4-职业转型的瓶颈（5-年以上）"><a href="#4-职业转型的瓶颈（5-年以上）" class="headerlink" title="4. 职业转型的瓶颈（5 年以上）"></a>4. 职业转型的瓶颈（5 年以上）</h3><p>这个阶段，就需要考虑的更加长远。是继续往技术方面深入，还是考虑其他方面。技术方面，比如全栈、技术经理、架构师、技术总监、CTO等，管理方面，比如项目经理、团队Leader 等，其他如产品经理、产品总监等等。</p>
+<p>遇到瓶颈，说明你知道了自己不知道。很多的时候，我们的悲哀不在于不知道，而在于不知道自己不知道。</p>
+<p>雅典人说，苏格拉底是雅典最聪明的人，他什么都知道。</p>
+<p>苏格拉底说，「我唯一知道的就是我不知道，而你们也不知道，但是你们不知道自己不知道。」</p>
+<p>当遇到瓶颈，知道自己不知道的时候，也是提升自己，让自己知道的好机会。跨过去，美好的风景在等着你。</p>
+<p>完！</p>
+<p>想得到及时信息，欢迎关注「ibrothergang」微信公众号。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/22/162edc9c1949449a?w=258&h=258&f=jpeg&s=27696"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/12/07/about-death/" rel="prev" title="重新认识了死亡">
+                  <i class="fa fa-angle-left"></i> 重新认识了死亡
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/02/01/article-list/" rel="next" title="公众号文章列表">
+                  公众号文章列表 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ibrothergang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

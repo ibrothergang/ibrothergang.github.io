@@ -1,38 +1,327 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ibrothergang.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="阅读之前先来看几个关于埋点的问题，看看这篇文章对你是不是有用？  每个页面的进入和退出需要埋点统计； 很多的按钮点击事件需要统计上报； 一些函数的性能数据需要统计；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOP 系列一">
+<meta property="og:url" content="http://www.ibrothergang.com/2017/03/29/aop-series-one/index.html">
+<meta property="og:site_name" content="ibrothergang&#39;s blog">
+<meta property="og:description" content="阅读之前先来看几个关于埋点的问题，看看这篇文章对你是不是有用？  每个页面的进入和退出需要埋点统计； 很多的按钮点击事件需要统计上报； 一些函数的性能数据需要统计；">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-daecb80151d8f7d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-667e65fe606cecb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8a68a21857b7e31a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2017-03-29T14:52:39.000Z">
+<meta property="article:modified_time" content="2017-03-29T15:08:44.000Z">
+<meta property="article:author" content="ibrothergang">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="AOP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2159159-daecb80151d8f7d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
-{% block content %}
+<link rel="canonical" href="http://www.ibrothergang.com/2017/03/29/aop-series-one/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.ibrothergang.com/2017/03/29/aop-series-one/","path":"2017/03/29/aop-series-one/","title":"AOP 系列一"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>AOP 系列一 | ibrothergang's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ibrothergang's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命在于折腾</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ibrothergang</p>
+  <div class="site-description" itemprop="description">将来的你一定会感激现在拼命的自己</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/03/29/aop-series-one/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="AOP 系列一 | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AOP 系列一
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2017-03-29 22:52:39 / 修改时间：23:08:44" itemprop="dateCreated datePublished" datetime="2017-03-29T22:52:39+08:00">2017-03-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="http://upload-images.jianshu.io/upload_images/2159159-daecb80151d8f7d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="面向切面编程"></p>
+<p>阅读之前先来看几个关于埋点的问题，看看这篇文章对你是不是有用？</p>
+<ul>
+<li>每个页面的进入和退出需要埋点统计；</li>
+<li>很多的按钮点击事件需要统计上报；</li>
+<li>一些函数的性能数据需要统计；</li>
+</ul>
+<span id="more"></span>
+
+<p>好了，如果你遇到了这些问题，那么告诉你，AOP 可以解决你的问题。</p>
+<p>最早接触 AOP，是和滴滴的郑老师聊的过程中，郑老师提到的。<br>之前遇到了一些埋点方面的问题，有一些不是很完美的方案，所以请教了一下滴滴的郑老师，提供了一些解决思路。</p>
+<p>有很多人，都是奔着解决方案去的。给我「鱼」就行，至于怎么「渔」，以后再说。从方法论上来说，这样当然是不对的，但是从实际角度出发，这又是最简单高效的一种方式。所以这次我也是直接上「鱼」，后面再来谈如何「渔」。</p>
+<p>举个稍微特殊点的例子，先看看一般的打点方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">TAG</span> <span class="operator">=</span> TestActivity.class.getSimpleName();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_test);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onStart</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onStart();</span><br><span class="line">        debugLog(<span class="string">&quot; === onStart ===&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onRestart</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onRestart();</span><br><span class="line">        debugLog(<span class="string">&quot; === onRestart ===&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onResume();</span><br><span class="line">        debugLog(<span class="string">&quot; === onResume ===&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPause</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPause();</span><br><span class="line">        debugLog(<span class="string">&quot; === onPause ===&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onStop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onStop();</span><br><span class="line">        debugLog(<span class="string">&quot; === onStop ===&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onDestroy</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onDestroy();</span><br><span class="line">        debugLog(<span class="string">&quot; === onDestroy ===&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">debugLog</span><span class="params">(String loginfo)</span>&#123;</span><br><span class="line">        LogUtils.i(<span class="built_in">this</span>.getClass(), loginfo);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里，如果我们需要统计 Activity 的生命周期（作为 APP 开发，或多或少的都打过类似的日志吧），一般都会在 Activity 关键的几个生命周期函数里打上日志，然后来看看整个 Activity 的生命周期是怎么样的。如果是只是统计一个 Activity 还好，如果是统计多个呢？难道每个 Activity 都写上一遍吗？</p>
+<p>当然不是，程序员的其中一个使命就是能机器做的决不自己动手，所以我们让 AOP 来帮我们解决。</p>
+<p>具体的 AOP 相关的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span>   <span class="comment">//必须使用@AspectJ标注，这样class DemoAspect就等同于 aspect DemoAspect了</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoAspect</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">TAG</span> <span class="operator">=</span> <span class="string">&quot;DemoAspect&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    @Pointcut：pointcut也变成了一个注解，这个注解是针对一个函数的，比如此处的logForActivity()</span></span><br><span class="line"><span class="comment">    其实它代表了这个pointcut的名字。如果是带参数的pointcut，则把参数类型和名字放到</span></span><br><span class="line"><span class="comment">    代表pointcut名字的logForActivity中，然后在@Pointcut注解中使用参数名。</span></span><br><span class="line"><span class="comment">    基本和以前一样，只是写起来比较奇特一点。后面我们会介绍带参数的例子</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Pointcut(&quot;execution(* com.brothergang.demo.aop.TestActivity.onCreate(..)) ||&quot;</span></span><br><span class="line"><span class="meta">            + &quot;execution(* com.brothergang.demo.aop.TestActivity.onStart(..)) ||&quot;</span></span><br><span class="line"><span class="meta">            + &quot;execution(* com.brothergang.demo.aop.TestActivity.onResume(..)) ||&quot;</span></span><br><span class="line"><span class="meta">            + &quot;execution(* com.brothergang.demo.aop.TestActivity.onDestroy(..)) ||&quot;</span></span><br><span class="line"><span class="meta">            + &quot;execution(* com.brothergang.demo.aop.TestActivity.onPause(..))&quot;</span></span><br><span class="line"><span class="meta">    )</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">logForActivity</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ;  <span class="comment">//注意，这个函数必须要有实现，否则Java编译器会报错</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    @Before：这就是Before的advice，对于after，after -returning，和after-throwing。对于的注解格式为</span></span><br><span class="line"><span class="comment">    @After，@AfterReturning，@AfterThrowing。Before后面跟的是pointcut名字，然后其代码块由一个函数来实现。</span></span><br><span class="line"><span class="comment">            比如此处的log。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Before(&quot;logForActivity()&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">log</span><span class="params">(JoinPoint joinPoint)</span> &#123;</span><br><span class="line">        <span class="comment">//对于使用Annotation的AspectJ而言，JoinPoint就不能直接在代码里得到多了，而需要通过</span></span><br><span class="line">        <span class="comment">//参数传递进来。</span></span><br><span class="line">        Log.e(TAG, <span class="string">&quot;AOP 埋点：&quot;</span> + joinPoint.toShortString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Pointcut(&quot;execution(* android.view.View.OnClickListener.onClick(..))&quot;</span></span><br><span class="line"><span class="meta">    )</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">clickEvent</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before(&quot;clickEvent()&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">logClickEvent</span><span class="params">(JoinPoint joinPoint)</span> &#123;</span><br><span class="line">        <span class="comment">//对于使用Annotation的AspectJ而言，JoinPoint就不能直接在代码里得到多了，而需要通过</span></span><br><span class="line">        <span class="comment">//参数传递进来。</span></span><br><span class="line">        Log.e(TAG, <span class="string">&quot;AOP 埋点：&quot;</span> + joinPoint.toShortString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然，光这样是运行不起来的，首先，需要在项目根目录的build.gradle中 <strong>dependencies</strong> 的增加依赖：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath <span class="string">&#x27;com.jakewharton.hugo:hugo-plugin:1.2.1&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>然后再主项目或者库的build.gradle中增加AspectJ的依赖：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">&#x27;org.aspectj:aspectjrt:1.8.9&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>同时加入AspectJX插件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">&#x27;com.jakewharton.hugo&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>然后 <strong>Sync Now</strong>，好了，可以跑起来了。自己看效果吧。可以看到白色部分是代码中的埋点，红色部分是通过 AOP 的方式埋的点。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2159159-667e65fe606cecb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行结果图"></p>
+<p>好了，实践完了，后面就要深入概念理解了。</p>
+<p><a href="https://github.com/brothergang/demo-android-aop">源码在这里，觉得好的话顺手给个 Star 吧</a></p>
+<p>关注微信公众号「扯淡笔记」，看我扯淡！<br><img src="http://upload-images.jianshu.io/upload_images/2159159-8a68a21857b7e31a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="扯淡笔记"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+              <a href="/tags/AOP/" rel="tag"># AOP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/24/see-you-duoshuo/" rel="prev" title="再见，「多说」">
+                  <i class="fa fa-angle-left"></i> 再见，「多说」
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/08/about-interview/" rel="next" title="谈谈「面试」那些事">
+                  谈谈「面试」那些事 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ibrothergang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

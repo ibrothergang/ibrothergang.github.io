@@ -1,38 +1,364 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ibrothergang.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="公众号是 2017 年开始写的，对自己而言，还是写了不少东西，虽然有些内容一般，但也是一种记录。今天整理了一下，分成了几个大的目录：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="公众号文章列表">
+<meta property="og:url" content="http://www.ibrothergang.com/2019/02/01/article-list/index.html">
+<meta property="og:site_name" content="ibrothergang&#39;s blog">
+<meta property="og:description" content="公众号是 2017 年开始写的，对自己而言，还是写了不少东西，虽然有些内容一般，但也是一种记录。今天整理了一下，分成了几个大的目录：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-01T06:39:08.000Z">
+<meta property="article:modified_time" content="2019-02-01T06:48:19.200Z">
+<meta property="article:author" content="ibrothergang">
+<meta name="twitter:card" content="summary">
 
 
-{% block content %}
+<link rel="canonical" href="http://www.ibrothergang.com/2019/02/01/article-list/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.ibrothergang.com/2019/02/01/article-list/","path":"2019/02/01/article-list/","title":"公众号文章列表"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>公众号文章列表 | ibrothergang's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ibrothergang's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命在于折腾</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%B2%E8%81%8A"><span class="nav-number">1.</span> <span class="nav-text">闲聊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF"><span class="nav-number">2.</span> <span class="nav-text">技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">历程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%95%86%E4%B8%9A"><span class="nav-number">5.</span> <span class="nav-text">商业</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%97%E6%AF%94"><span class="nav-number">6.</span> <span class="nav-text">逗比</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ibrothergang</p>
+  <div class="site-description" itemprop="description">将来的你一定会感激现在拼命的自己</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2019/02/01/article-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="公众号文章列表 | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          公众号文章列表
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2019-02-01 14:39:08 / 修改时间：14:48:19" itemprop="dateCreated datePublished" datetime="2019-02-01T14:39:08+08:00">2019-02-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>公众号是 2017 年开始写的，对自己而言，还是写了不少东西，虽然有些内容一般，但也是一种记录。今天整理了一下，分成了几个大的目录：</p>
+<span id="more"></span>
+
+<h2 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h2><hr>
+<p><a href="https://mp.weixin.qq.com/s/pkOfziGccrEq5v6AkoarCQ">等我准备好以后，我就…</a></p>
+<p><a href="https://mp.weixin.qq.com/s/5ERFy9tKc9ST5z2KtyvPJA">你会「选择」吗</a></p>
+<p><a href="https://mp.weixin.qq.com/s/spQDLSYyEPjJLb1c9rDWag">好久没有更新了</a></p>
+<p><a href="https://mp.weixin.qq.com/s/iDvwVGI0yKlkG_vjr-BLMQ">扯个淡</a></p>
+<p><a href="https://mp.weixin.qq.com/s/pWw5UamTrbBufeQNom8BQg">有件事听说越来越难做了…</a></p>
+<p><a href="https://mp.weixin.qq.com/s/4_1bK7bjeqYxUUKRWDik6g">住的太远，上班坐公交折腾吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/vHq5LJR-AjdOUzVo2B-_fQ">关于分享会的一些想法</a></p>
+<p><a href="https://mp.weixin.qq.com/s/8L-F6O00uKRUerX_T_J1Vw">人类会被机器人灭亡吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/-yf4eTy_fnv3IMexnfO2hg">重新认识了死亡</a></p>
+<p><a href="https://mp.weixin.qq.com/s/S2EfzHi_GOUSwTVDcDLfkw">请善待你身边的程序员</a></p>
+<p><a href="https://mp.weixin.qq.com/s/bI2HCJ6MRmYoGA8cuqUfuQ">让计划「见鬼」去吧！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/fzCttteOg3fvfjqBxrN3qw">几点思考</a></p>
+<p><a href="https://mp.weixin.qq.com/s/dZ6jWNTsrYMKSZW_SmFKvg">不善演讲的马化腾在 08 年讲了什么？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/oIJYH3-KEA4OMjPokF8HmQ">不要给自己设限</a></p>
+<p><a href="https://mp.weixin.qq.com/s/wKHHaizSgp5vioGC0z3PIQ">注意，又来鸡汤了！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/3LY1wklXRzOvrdRiqDifiw">很多时候，你只是在假装很努力</a></p>
+<p><a href="https://mp.weixin.qq.com/s/4puhW6AMp5TyllQtxgn-6A">这个人是好人还是坏人？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/JXx2RtL6RJDRtQv0K-70uQ">推荐两款 GTD 工具</a></p>
+<p><a href="https://mp.weixin.qq.com/s/0EZ05g85T_nY_BW0UuZn1Q">你应该画过画，或者用过显微镜吧？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/CNUfzyIsMTVvkgibcRy5Mg">今天，同事说我「变」了</a></p>
+<p><a href="https://mp.weixin.qq.com/s/xPKPWDSROPbkdNglVV9n7Q">推荐一本书</a></p>
+<p><a href="https://mp.weixin.qq.com/s/2xK_AbJisR-CuIDLU2a2iA">一些文摘</a></p>
+<h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><hr>
+<p><a href="https://mp.weixin.qq.com/s/gG6afOvw6apl2HyyexptPA">Android 中的 AOP ——实践篇</a></p>
+<p><a href="https://mp.weixin.qq.com/s/dh7dWuaBzGGo9u-gjJB4NA">这样的架构你知道吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/06QUdWCB8xq61uBsKunYAA">聊聊编译时注解（一）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/5v3pCRSkqfDkC3T4jurDfA">哟，发现一个程序员装逼方法</a></p>
+<p><a href="https://mp.weixin.qq.com/s/7wRgQITubid8FCrrF_1Qjw">Android Studio 中的 Gradle 配置说明（一）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/6cgJyKHO6w4nTGpzg5DOgw">一直在解决技术难点？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/wWxVlv9CkLekkbKSDrf5KA">工程师的瓶颈</a></p>
+<p><a href="https://mp.weixin.qq.com/s/hz_a3No-ftmOhKucCm9fIQ">给技术人员一些技术以外的建议</a></p>
+<p><a href="https://mp.weixin.qq.com/s/X9Hi-U_IMdMnBJw67hWOGw">程序员等级说明书</a></p>
+<p><a href="https://mp.weixin.qq.com/s/Q3cWETlqeTlKgGF6k9JJJw">技术人员要抓住产品机会成长</a></p>
+<h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><hr>
+<p><a href="https://mp.weixin.qq.com/s/XNH5i5P6oLd7-AqvhBphUA">谈谈「面试」那些事？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/dOlTtdpt8pQBX11rX6UPlg">一些面试建议（一）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/AQf9EN8mQaLzTiwDfDY9oA">一些面试建议（二）</a></p>
+<p><a href="https://mp.weixin.qq.com/s/plT4sqbzpXpE2T2TTStEJw">态度这么差，我不敢要你啊？</a></p>
+<h2 id="历程"><a href="#历程" class="headerlink" title="历程"></a>历程</h2><hr>
+<p><a href="https://mp.weixin.qq.com/s/Xb1wf1-SkDfiVH76itZPIA">家里有两只小「宠物」是怎样一种体验</a></p>
+<p><a href="https://mp.weixin.qq.com/s/IgL5k6ikKNF94fVPuPW5mg">回过头来看看走过的路</a></p>
+<p><a href="https://mp.weixin.qq.com/s/s0sFXs7hssurS9oov-Ypwg">收到原创开通邀请了！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/hZ5rhY31i_ROjBAtbhPMAg">新功能上线！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/KchDL8jQHg7Cr0y5vQM2Qw">为什么开通公众号</a></p>
+<p><a href="https://mp.weixin.qq.com/s/ZU_cjoLQPn58peVw8Nxbuw">2017 走了一半</a></p>
+<p><a href="https://mp.weixin.qq.com/s/uykz9G-GdMjZv7iEV3BbMQ">追悼一位小朋友</a></p>
+<p><a href="https://mp.weixin.qq.com/s/TdDL9OM4RMVmVtnCEf3m2w">「原始人」是怎样一种体验</a></p>
+<p><a href="https://mp.weixin.qq.com/s/1TYrsL-FuqGzH7pmBp2tSw">最近在做什么</a></p>
+<p><a href="https://mp.weixin.qq.com/s/8qNtX9FP72eSsqCF7s0JkA">弘扬社会主义核心价值观</a></p>
+<p><a href="https://mp.weixin.qq.com/s/dV80FaD4hJW-vKEyGv2zRA">你的年终总结写了吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/QtGVytFz9Fa61O47uA_CMA">2017 年终总结</a></p>
+<p><a href="https://mp.weixin.qq.com/s/4TtMP3mabGzDer1KFoU1uA">公众号改名了！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/zViD8q38RuZ9bTC3oCELww">生病了</a></p>
+<p><a href="https://mp.weixin.qq.com/s/u3OtssJhP6Zwq6mvGLQv5g">5 公里跑感受</a></p>
+<h2 id="商业"><a href="#商业" class="headerlink" title="商业"></a>商业</h2><hr>
+<p><a href="https://mp.weixin.qq.com/s/H0vxfDaDS6SMz4vbeU8LSA">再见，「多说」</a></p>
+<p><a href="https://mp.weixin.qq.com/s/bZZhHmxz64W9Yxmll2fQxA">你会爱上它吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/bwsDCCxRBwDcAtPE4n-bBA">如何看待微信小程序开放长按二维码识别功能</a></p>
+<p><a href="https://mp.weixin.qq.com/s/htsajTbdVOHOL8etumsJNw">小密圈回来了！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/wNG9byOV51ohDp780r5p7g">阿里巴巴是中国的，也是世界的！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/7w4dTij_WuLnUDBI3BpFRg">这个产品很好，但是…</a></p>
+<p><a href="https://mp.weixin.qq.com/s/fan5qf_mLqsU49_0RqfnTw">哪里是在设计产品，这是在设计人心。</a></p>
+<p><a href="https://mp.weixin.qq.com/s/AfpmluoVpcDwEZyuvr0SaA">老罗，锤子真要加油了</a></p>
+<p><a href="https://mp.weixin.qq.com/s/kBkWjqlzMGN9QO0eQrsTiw">卖车险，卖的不光是产品</a></p>
+<p><a href="https://mp.weixin.qq.com/s/EaEGJelYW-TA2Yfc2stk1Q">滴滴，你要不要脸？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/kX1vaCxb3DTCMWyVTIyDkA">「非死不可」来了！</a></p>
+<p><a href="https://mp.weixin.qq.com/s/SC3ncvLAkSsqt_GG54Y4BQ">拼多多是消费降级吗？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/e3UC7kM6OeROKDW7ofYAYA">没有数据，没真相，差评！</a></p>
+<h2 id="逗比"><a href="#逗比" class="headerlink" title="逗比"></a>逗比</h2><hr>
+<p><a href="https://mp.weixin.qq.com/s/d0h2sfw4E-LaUICert7Sqw">我市高温天气强制放假的文件说明</a></p>
+<p><a href="https://mp.weixin.qq.com/s/3pQaU2Y1zkJAw09SYgGuAA">程序员出轨率最高？</a></p>
+<p><a href="https://mp.weixin.qq.com/s/SazkQIRx29AsrZi4COhf8A">十一去哪玩了？</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/05/10/bottleneck/" rel="prev" title="恭喜你，遇到瓶颈了">
+                  <i class="fa fa-angle-left"></i> 恭喜你，遇到瓶颈了
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/05/16/vysor%20%E6%9C%80%E6%96%B0%E7%89%88%202.1%20%E7%A0%B4%E8%A7%A3/" rel="next" title="Vysor 最新版 2.1.7 破解">
+                  Vysor 最新版 2.1.7 破解 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ibrothergang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

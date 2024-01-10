@@ -1,38 +1,330 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ibrothergang.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="每个人都是爸妈的「小宠物」！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="家里有两只小「宠物」是怎样一种体验">
+<meta property="og:url" content="http://www.ibrothergang.com/2017/03/02/little-pet/index.html">
+<meta property="og:site_name" content="ibrothergang&#39;s blog">
+<meta property="og:description" content="每个人都是爸妈的「小宠物」！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-43f779c129b4da44.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2017-03-01T16:11:16.000Z">
+<meta property="article:modified_time" content="2017-03-21T16:08:35.000Z">
+<meta property="article:author" content="ibrothergang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2159159-43f779c129b4da44.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
-{% block content %}
+<link rel="canonical" href="http://www.ibrothergang.com/2017/03/02/little-pet/">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.ibrothergang.com/2017/03/02/little-pet/","path":"2017/03/02/little-pet/","title":"家里有两只小「宠物」是怎样一种体验"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>家里有两只小「宠物」是怎样一种体验 | ibrothergang's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ibrothergang's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命在于折腾</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E4%BB%8E%E4%B8%A4%E5%8F%AA%E5%B0%8F%E3%80%8C%E5%AE%A0%E7%89%A9%E3%80%8D%E6%9D%A5%E5%88%B0%E5%AE%B6%E9%87%8C%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%8F%91%E7%94%9F%E4%BA%86%E5%A4%AA%E5%A4%9A%E7%9A%84%E5%8F%98%E5%8C%96%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">自从两只小「宠物」来到家里之后，发生了太多的变化。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9D%A1%E7%9C%A0%E6%97%B6%E9%97%B4%E5%B0%91%E4%BA%86"><span class="nav-number">1.1.</span> <span class="nav-text">1. 睡眠时间少了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%87%AA%E7%94%B1%E6%97%B6%E9%97%B4%E5%B0%91%E4%BA%86"><span class="nav-number">1.2.</span> <span class="nav-text">2. 自由时间少了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8E%BB%E5%8C%BB%E9%99%A2%E7%9A%84%E6%AC%A1%E6%95%B0%E5%A4%9A%E4%BA%86"><span class="nav-number">1.3.</span> <span class="nav-text">3. 去医院的次数多了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E7%84%B6%E4%BA%86%EF%BC%8C%E4%B8%A4%E5%8F%AA%E5%B0%8F%E3%80%8C%E5%AE%A0%E7%89%A9%E3%80%8D%E5%9C%A8%EF%BC%8C%E5%BE%97%E5%88%B0%E7%9A%84%E4%B9%9F%E5%BE%88%E5%A4%9A%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">当然了，两只小「宠物」在，得到的也很多。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%A6%E4%BC%9A%E4%BA%86%E8%B4%A3%E4%BB%BB"><span class="nav-number">2.1.</span> <span class="nav-text">1. 学会了责任</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%80%E8%B5%B7%E6%88%90%E9%95%BF"><span class="nav-number">2.2.</span> <span class="nav-text">2. 一起成长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%94%9F%E6%B4%BB%E5%85%85%E5%AE%9E"><span class="nav-number">2.3.</span> <span class="nav-text">3. 生活充实</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%94%B6%E8%8E%B7%E5%BF%AB%E4%B9%90"><span class="nav-number">2.4.</span> <span class="nav-text">4. 收获快乐</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ibrothergang</p>
+  <div class="site-description" itemprop="description">将来的你一定会感激现在拼命的自己</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/03/02/little-pet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="家里有两只小「宠物」是怎样一种体验 | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          家里有两只小「宠物」是怎样一种体验
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-02 00:11:16" itemprop="dateCreated datePublished" datetime="2017-03-02T00:11:16+08:00">2017-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2017-03-22 00:08:35" itemprop="dateModified" datetime="2017-03-22T00:08:35+08:00">2017-03-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="http://upload-images.jianshu.io/upload_images/2159159-43f779c129b4da44.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="爱心"></p>
+<blockquote>
+<p>每个人都是爸妈的「小宠物」！</p>
+</blockquote>
+<span id="more"></span>
+
+<p>这里的「宠物」当然不是指真正的宠物，而是指家里的两位小朋友。</p>
+<p>2012年9月，家里的第一只「宠物」，在老婆肚子待了十个月，在预产期过了将近1星期的时候，才慢悠悠的钻出来。</p>
+<p>在预产期之前的一星期，我已经请假在老家，等待小生命的降临。之前也发生过疼痛的症状，但是却没有生产。结果等到了预产期都还没有反应。</p>
+<p>那天 LP 是大早上的时候跟我说的，当时还是工作日，LP 竟然说慢慢来好了（第一次都没什么经验）。这事情哪能等。赶紧回老家（当时 LP 是在老家待产的）。等到了医院，还没进产房，能说上几句话。记得当时 LP 说的最多就是：「痛死了，再也不生了，剖腹产吧」。可医生还是坚持要顺产。</p>
+<p>痛了大概4个小时，终于要进产房了。记得那个时候心情真的特别复杂，现在回想真是很特别。当时想想自己要有个儿子（之前做过B超）了，感觉是一件特别激动的事情，当时真的偷偷在角落里流泪了，要有儿子了，心情真的不一样。</p>
+<p>2016年4月，家里的第二只「宠物」，又来到了我们这个小家庭。这次小家伙是在凌晨出生的，所以我也就没有赶上去医院见产前一面。等我到医院的时候小家伙已经在出来在妈妈旁边了。</p>
+<p>有了第一次经验，这次老二出来的就快多了。在医院这几天晚上也是我一个人在照顾，没什么大问题。</p>
+<p>都说好了伤疤忘了疼，生一个的时候坚决不想要第二个的。妈妈们呀，的确伟大，有小宝宝的时候就忘记所有疼痛了。</p>
+<p>现在我们搬进了新房子，虽然不大，但是一家四口住住还是可以的。</p>
+<p>家里有了两个小朋友，事情就变得特别多。基本上就没有闲着的时候。</p>
+<p>老大是个男孩子，现在正处于调皮捣蛋的时候，从眼睛睁开开始，到晚上睡觉之前，基本上就没有停下来的时候。东摸摸，西碰碰，跑过来，跳过去。基本上整个家里就是他的战场。所以虽然刚搬进新房子，也已经被搞得像个战场一样，天天收拾他的战斗结果。</p>
+<p>老二是个小美女，相对来说比较文静一点。但是随着慢慢长大，目前对妈妈的依赖也越来越重。见不到妈妈就要哭。特别是晚上的时候，就需要妈妈时时刻刻在旁边陪着。</p>
+<p>平时我要上班，家里有两个小朋友在，就苦了妈妈。白天儿子去幼儿园还好一点，晚上是战斗最激烈的时候。要做饭，要给女儿喂饭，要督促儿子吃饭。还有准备洗脸刷牙。一堆的事情忙不完。</p>
+<p>周六周天，那就是陪玩、陪睡、陪吃，总之就是和这两个小家伙绑在一起了。所有的事情也基本上围绕着两个小家伙展开。</p>
+<h2 id="自从两只小「宠物」来到家里之后，发生了太多的变化。"><a href="#自从两只小「宠物」来到家里之后，发生了太多的变化。" class="headerlink" title="自从两只小「宠物」来到家里之后，发生了太多的变化。"></a>自从两只小「宠物」来到家里之后，发生了太多的变化。</h2><h3 id="1-睡眠时间少了"><a href="#1-睡眠时间少了" class="headerlink" title="1. 睡眠时间少了"></a>1. 睡眠时间少了</h3><p>这个是最明显的。</p>
+<p>老大睡觉不老实，经常在床上360度的转，我们就要经常给他调整位置和角度。</p>
+<p>老二现在还在吃母乳，所以妈妈经常半夜还要起来喂奶。然后现在也是小脚不安分，手舞足蹈把被子踢掉，需要经常给她盖被子。还有半夜需要起来换尿片（还好现在有尿片了，要还是以前的尿布方式麻烦死了）。</p>
+<h3 id="2-自由时间少了"><a href="#2-自由时间少了" class="headerlink" title="2. 自由时间少了"></a>2. 自由时间少了</h3><p>现在无论干什么事情，都要想想两个小家伙。基本上看电影，吃美食，玩游戏这些项目已经早就没有了。取而代之的就是做饭、遛娃、陪伴，进入了「服务行业」。现在也就是等两个娃睡着了之后，可以稍微做点自己的事情。在我写这篇文章的时候，旁边就有一只「小宠物」不断的打扰我，问这问那的各种问题。这篇文章就是等老大睡着了之后再起来写的。</p>
+<h3 id="3-去医院的次数多了"><a href="#3-去医院的次数多了" class="headerlink" title="3. 去医院的次数多了"></a>3. 去医院的次数多了</h3><p>这倒不完全是因为生病去医院。还包括体检，打疫苗等等。最怕的就是小朋友生病。看着两只「宠物」病嫣嫣的样子真的是心疼。特别是老二现在还不会说话，生病难受的时候处理起来就特别麻烦。</p>
+<h2 id="当然了，两只小「宠物」在，得到的也很多。"><a href="#当然了，两只小「宠物」在，得到的也很多。" class="headerlink" title="当然了，两只小「宠物」在，得到的也很多。"></a>当然了，两只小「宠物」在，得到的也很多。</h2><h3 id="1-学会了责任"><a href="#1-学会了责任" class="headerlink" title="1. 学会了责任"></a>1. 学会了责任</h3><p>刚刚为人父母，自己经历的事情也是当初爸妈经历过的，所以有些时候在抱怨父母的时候也会想想现在的自己是如何对待子女的。</p>
+<p>现在已经不是一人吃饱，全家不饿的时候了，所有很多的事情也不能由着性子来做了。会想想每件事情后面的影响。责任感更强了。</p>
+<h3 id="2-一起成长"><a href="#2-一起成长" class="headerlink" title="2. 一起成长"></a>2. 一起成长</h3><p>有本书的书名写的很好：遇见孩子，遇见更好的自己。</p>
+<p>大人有时候真的是跟随着孩子一起成长的。孩子每天在长大，父母需要不断调整自己的心态和处理方式，才能不断的跟上孩子的步伐，特别是后期孩子快速成长的阶段。这也是对父母的一种考验。</p>
+<h3 id="3-生活充实"><a href="#3-生活充实" class="headerlink" title="3. 生活充实"></a>3. 生活充实</h3><p>有了小家伙之后，很少有没事情可做的状态。倒是有时候小朋友放假回老家了，反而觉得无聊了。有小朋友在的时候，时间总是不够用，有许多的事情会和小朋友联系起来，需要爸爸妈妈去处理。</p>
+<h3 id="4-收获快乐"><a href="#4-收获快乐" class="headerlink" title="4. 收获快乐"></a>4. 收获快乐</h3><p>这个是最大的收获。</p>
+<p>现在老大上小班，每天回来都会带回来新鲜的东西。昨天说妈妈，垃圾桶有五颜六色的，扔垃圾的时候要分类；今天在聊的时候就冷不丁的蹦出几个英文单词；明天说不定又会搬出一套什么样的新理论来。这些新东西让我们做爸妈的都觉得十分的欣喜，觉得小家伙是在快速的成长过程中。</p>
+<p>现在老二已经能够喃喃学语了，而且表情也十分丰富。每一个动作在我们看来都是那么的可爱和优美，你坐在那边静静的看着她在那里动作，就觉得散发着快乐的气息。这种时候，所有的劳累已经不再重要，幸福和快乐紧紧的包围了我们。</p>
+<p>看了这些，80，90后还没有「宠物」的你们，想不想也拥有一两只「宠物」呢？</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/02/19/3rd-sdk/" rel="prev" title="目前在用的第三方服务">
+                  <i class="fa fa-angle-left"></i> 目前在用的第三方服务
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/03/07/security_encrypt_decrypt/" rel="next" title="移动安全系列之加解密">
+                  移动安全系列之加解密 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ibrothergang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

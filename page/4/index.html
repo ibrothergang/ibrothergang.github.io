@@ -1,23 +1,793 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
 
-{% block title %}{{ config.title }}{% if theme.index_with_subtitle and config.subtitle %} - {{config.subtitle }}{% endif %}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block content %}
-  <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
-  </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.ibrothergang.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="将来的你一定会感激现在拼命的自己">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ibrothergang&#39;s blog">
+<meta property="og:url" content="http://www.ibrothergang.com/page/4/index.html">
+<meta property="og:site_name" content="ibrothergang&#39;s blog">
+<meta property="og:description" content="将来的你一定会感激现在拼命的自己">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="ibrothergang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.ibrothergang.com/page/4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/4/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ibrothergang's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">ibrothergang's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命在于折腾</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ibrothergang</p>
+  <div class="site-description" itemprop="description">将来的你一定会感激现在拼命的自己</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/03/19/review-and-restart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/19/review-and-restart/" class="post-title-link" itemprop="url">回过头来看看走过的路</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-19 22:12:33" itemprop="dateCreated datePublished" datetime="2017-03-19T22:12:33+08:00">2017-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2017-03-22 00:08:38" itemprop="dateModified" datetime="2017-03-22T00:08:38+08:00">2017-03-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="http://upload-images.jianshu.io/upload_images/2159159-99f2b473fa370a87.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="远航"></p>
+<blockquote>
+<p> 自己的路还是要自己来走的，不要想太多，做就是了。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/19/review-and-restart/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/03/12/road/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/12/road/" class="post-title-link" itemprop="url">程序员和道路</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-12 21:56:08" itemprop="dateCreated datePublished" datetime="2017-03-12T21:56:08+08:00">2017-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2017-03-22 00:08:36" itemprop="dateModified" datetime="2017-03-22T00:08:36+08:00">2017-03-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="http://upload-images.jianshu.io/upload_images/2159159-a0b7dc8f1d4ef0e8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="路"></p>
+<blockquote>
+<p>程序员需要静静的敲代码。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/12/road/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/03/07/security_encrypt_decrypt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/07/security_encrypt_decrypt/" class="post-title-link" itemprop="url">移动安全系列之加解密</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-07 23:11:08" itemprop="dateCreated datePublished" datetime="2017-03-07T23:11:08+08:00">2017-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2017-03-22 00:08:34" itemprop="dateModified" datetime="2017-03-22T00:08:34+08:00">2017-03-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="http://upload-images.jianshu.io/upload_images/2159159-3ad46a7a0fba4f8f.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="移动安全"></p>
+<blockquote>
+<p>随着移动互联网的快速发展，安全问题也越来越被提到开发过程中。想置身事外已是妄想。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/07/security_encrypt_decrypt/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/03/02/little-pet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/02/little-pet/" class="post-title-link" itemprop="url">家里有两只小「宠物」是怎样一种体验</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-02 00:11:16" itemprop="dateCreated datePublished" datetime="2017-03-02T00:11:16+08:00">2017-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2017-03-22 00:08:35" itemprop="dateModified" datetime="2017-03-22T00:08:35+08:00">2017-03-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="http://upload-images.jianshu.io/upload_images/2159159-43f779c129b4da44.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="爱心"></p>
+<blockquote>
+<p>每个人都是爸妈的「小宠物」！</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/02/little-pet/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/02/19/3rd-sdk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/19/3rd-sdk/" class="post-title-link" itemprop="url">目前在用的第三方服务</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2017-02-19 22:50:08 / 修改时间：23:02:09" itemprop="dateCreated datePublished" datetime="2017-02-19T22:50:08+08:00">2017-02-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>一家创业公司，没有大公司的资源和财力，可以所有的东西都自己搞。所以除了核心技术和服务，最快的方式就是依靠第三方的服务快速的搭建自己的产品。</p>
+</blockquote>
+<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>决定一个产品好不好用，很多时候是靠数据说话的。什么<strong>日活</strong>，<strong>月活</strong>，<strong>新增</strong>，<strong>留存</strong>等等，没有统计哪里来的数据。所以数据统计这块是相当重要的。目前我所接触到的主要是下面这几家。</p>
+<h3 id="友盟"><a href="#友盟" class="headerlink" title="友盟"></a><a href="http://www.umeng.com/">友盟</a></h3><p>应该算国内的老牌了吧，最大的优势统计应该是统计的事件能基本做到实时上传生成报表。这对于开发来说十分方便。总不能让我添加完事件后过两天才能看到数据吧。</p>
+<h3 id="ThinkingData"><a href="#ThinkingData" class="headerlink" title="ThinkingData"></a><a href="http://www.thinkingdata.cn/">ThinkingData</a></h3><p>这个没有用过，暂时不评论。</p>
+<h3 id="Flurry"><a href="#Flurry" class="headerlink" title="Flurry"></a><a href="https://developer.yahoo.com/analytics/">Flurry</a></h3><p>这个是海外的数据统计平台，最大的特点应该是支持漏斗分析，这个对运营来说特别有用。转化率什么的再也不用拿数据一步步计算了，直接设置完漏斗，数据就出来了。数据统计上也比较完整。</p>
+<h3 id="GA-Google-Analysis"><a href="#GA-Google-Analysis" class="headerlink" title="GA(Google Analysis)"></a><a href="https://www.google.com/analytics/">GA(Google Analysis)</a></h3><p>GA就不说了，现在也只能叫海外的统计平台了。用户属性方面比较全，毕竟这么大的数据量，随便分析下就能获取用户的画像信息。但是事件统计这块真心不怎么样，数据的真实性也表示怀疑。曾经发生过添加了一个统计事件导致整个新增数量飙升的情况。去掉后数据又回落了，从此对这块数据就持怀疑态度了。</p>
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><p>现在的App，没有推送功能都不好意思说自己是个完整的App。如果没有关闭推送功能，往往是推送消息满天飞。在Android上，这种情况尤为突出。因为Android手机不像iOS，iOS的推送都是需要走苹果的通道，所以用户也可以在设置中主动关闭，但是Android一般情况下不可以（这部分权限ROM被重新定制过的手机除外）。这其实是一个很好的现象，直接的结果就是导致体验比较差，很有可能用户闲烦就把你卸载了。<br>跑偏了，合理的推送对用户来说还是十分必要的。</p>
+<h3 id="GCM-Google-Cloud-Message-FCM-Firebase-Cloud-Message"><a href="#GCM-Google-Cloud-Message-FCM-Firebase-Cloud-Message" class="headerlink" title="GCM(Google Cloud Message) &amp; FCM(Firebase Cloud Message)"></a>GCM(Google Cloud Message) &amp; FCM(Firebase Cloud Message)</h3><p>FCM是GCM的升级版本，Google在2016年的时候大力推了一把Firebase，可惜在国内没多少人买它的账。FCM和GCM一个共同的特点是后台搭建比较麻烦，而且到现在为止我们也不知道怎么样去获取推送的送达数。没有数据的统计就无法衡量效果，所以目前为止我们还是在用国内的推送服务商。</p>
+<h3 id="极光推送（JPush）"><a href="#极光推送（JPush）" class="headerlink" title="极光推送（JPush）"></a><a href="https://www.jiguang.cn/">极光推送（JPush）</a></h3><p>这个算老牌了吧，推送一直算比较稳定吧，但是到达率也不算高，不知道是不是没有付钱，使用的是免费版本的原因。</p>
+<h3 id="小米推送（MiPush）"><a href="#小米推送（MiPush）" class="headerlink" title="小米推送（MiPush）"></a><a href="http://dev.xiaomi.com/console/appservice/push.html">小米推送（MiPush）</a></h3><p>在小米的设备上到达率特别高，因为小米推送在小米设备上是系统级的服务。类似于Android原生手机上的GCM和FCM.</p>
+<h3 id="个推"><a href="#个推" class="headerlink" title="个推"></a><a href="http://www.getui.com/cn/index.html">个推</a></h3><p>这个算后起之秀吧，国内到达率应该挺高的。杭州这边的公司普遍到达率有90%以上。我们的用户大部分在海外，所有到达率也没有那么高。</p>
+<h2 id="地理位置"><a href="#地理位置" class="headerlink" title="地理位置"></a>地理位置</h2><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>SDK中自带服务</p>
+<h3 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h3><p>App中使用的场景不多，所以也没有深入研究，满足基本的定位和获取城市信息即可。</p>
+<h2 id="私信"><a href="#私信" class="headerlink" title="私信"></a>私信</h2><p>私信从本质上讲就是一个个的长连接。和push的原理很类似。环信和融云其实也差不多，最终就看价格和服务了。</p>
+<h3 id="环信"><a href="#环信" class="headerlink" title="环信"></a>环信</h3><h3 id="融云"><a href="#融云" class="headerlink" title="融云"></a>融云</h3><h2 id="广告"><a href="#广告" class="headerlink" title="广告"></a>广告</h2><h3 id="Facebook"><a href="#Facebook" class="headerlink" title="Facebook"></a>Facebook</h3><h3 id="Altamob"><a href="#Altamob" class="headerlink" title="Altamob"></a>Altamob</h3><h3 id="Adcolony"><a href="#Adcolony" class="headerlink" title="Adcolony"></a>Adcolony</h3><h3 id="Admob"><a href="#Admob" class="headerlink" title="Admob"></a>Admob</h3><h3 id="Pingstart"><a href="#Pingstart" class="headerlink" title="Pingstart"></a>Pingstart</h3><h2 id="云存储"><a href="#云存储" class="headerlink" title="云存储"></a>云存储</h2><p>这块接触不深，目前我们主要在用阿里云，海外部署了AWS.</p>
+<h3 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h3><h3 id="七牛"><a href="#七牛" class="headerlink" title="七牛"></a>七牛</h3><h3 id="亚马逊"><a href="#亚马逊" class="headerlink" title="亚马逊"></a>亚马逊</h3><h2 id="Deeplink"><a href="#Deeplink" class="headerlink" title="Deeplink"></a>Deeplink</h2><p>目前还在尝试阶段吧。</p>
+<h3 id="魔窗"><a href="#魔窗" class="headerlink" title="魔窗"></a>魔窗</h3><h3 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h3><h3 id="LinkedME"><a href="#LinkedME" class="headerlink" title="LinkedME"></a>LinkedME</h3><h2 id="支付"><a href="#支付" class="headerlink" title="支付"></a>支付</h2><h3 id="Ping"><a href="#Ping" class="headerlink" title="Ping++"></a><a href="https://www.pingxx.com/">Ping++</a></h3><p>不多说了，集成比较简单，唯一麻烦的是需要服务器那边配合搭建相应的验证机制。</p>
+<h2 id="短信"><a href="#短信" class="headerlink" title="短信"></a>短信</h2><h3 id="Mob"><a href="#Mob" class="headerlink" title="Mob"></a><a href="http://www.mob.com/">Mob</a></h3><p>这家据说短信永久免费。不是核心功能，能够简单方便集成就行。</p>
+<h2 id="社会化分享"><a href="#社会化分享" class="headerlink" title="社会化分享"></a>社会化分享</h2><p>社会化分享这块不知道什么原因，印象中前几年突然多了好多家。Umeng，mob都在做，做的还比较大。这块的我们还是老老实实的集成各家SNS的SDK来做的。说不定哪天我们业开源放一个SDK出来供大家使用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/02/06/first-article-of-2017/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/06/first-article-of-2017/" class="post-title-link" itemprop="url">新年第一发</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2017-02-06 21:12:57 / 修改时间：21:16:00" itemprop="dateCreated datePublished" datetime="2017-02-06T21:12:57+08:00">2017-02-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="新年第一发"><a href="#新年第一发" class="headerlink" title="新年第一发"></a>新年第一发</h1><hr>
+<p>新年第一篇文章，来点鸡汤。</p>
+<p>有一段营销文案挺好，送给大家：</p>
+<blockquote>
+<p>鸡蛋从外面打破是食物，从里面打破是生命。</p>
+</blockquote>
+<blockquote>
+<p>我们生而有壳，这些「壳」是：<br>习惯的束缚、能力的边界、认知的局限、性格的禁锢。<br>你选择等着从外面被打破，还是自己去击破？</p>
+</blockquote>
+<blockquote>
+<p>石头虽然坚硬，可蛋才是生命。我们努力地喝鸡汤，打鸡血，<br>无非就是希望自己能从内而外，挣脱出壳。</p>
+</blockquote>
+<p>仰望星空，脚踏实地，听别人的故事，学别人的经验，走自己的路！<br>与大家一起共勉！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.ibrothergang.com/2017/01/25/go-home/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ibrothergang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ibrothergang's blog">
+      <meta itemprop="description" content="将来的你一定会感激现在拼命的自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ibrothergang's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/01/25/go-home/" class="post-title-link" itemprop="url">回家</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2017-01-25 19:08:04 / 修改时间：19:13:37" itemprop="dateCreated datePublished" datetime="2017-01-25T19:08:04+08:00">2017-01-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="回家"><a href="#回家" class="headerlink" title="回家"></a>回家</h1><hr>
+<p>放假了，有钱没钱，回家过年！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ibrothergang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
