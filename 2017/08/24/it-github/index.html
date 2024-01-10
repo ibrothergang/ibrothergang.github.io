@@ -1,279 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>哟，发现一个程序员装逼方法 | ibrothergang&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="凡是程序员，应该都会有 github 账号，在各自的开发领域，也会有各路大神驻扎在 github 上。今天就教大家一个装逼的方法，让大神给你来贡献代码。不知道此方法后续会不会被刷屏？">
-<meta property="og:type" content="article">
-<meta property="og:title" content="哟，发现一个程序员装逼方法">
-<meta property="og:url" content="http://www.ibrothergang.com/2017/08/24/it-github/index.html">
-<meta property="og:site_name" content="ibrothergang&#39;s blog">
-<meta property="og:description" content="凡是程序员，应该都会有 github 账号，在各自的开发领域，也会有各路大神驻扎在 github 上。今天就教大家一个装逼的方法，让大神给你来贡献代码。不知道此方法后续会不会被刷屏？">
-<meta property="og:locale">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-14a36ec248fe6ee7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-ec3f5d2758aeab16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-90f734ef7811f573.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-7d3b2b74fd29c081.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8dd2634000603039.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-ec3f5d2758aeab16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8a68a21857b7e31a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2017-08-24T07:45:16.000Z">
-<meta property="article:modified_time" content="2017-08-24T07:46:54.000Z">
-<meta property="article:author" content="ibrothergang">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2159159-14a36ec248fe6ee7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-  
-    <link rel="alternate" href="/atom.xml" title="ibrothergang&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  
 
-<meta name="generator" content="Hexo 7.0.0"></head>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ibrothergang&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.ibrothergang.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-it-github" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/24/it-github/" class="article-date">
-  <time datetime="2017-08-24T07:45:16.000Z" itemprop="datePublished">2017-08-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      哟，发现一个程序员装逼方法
-    </h1>
-  
+{% block page_class %}page-post-detail{% endblock %}
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/2159159-14a36ec248fe6ee7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="github"></p>
-<p>凡是程序员，应该都会有 github 账号，在各自的开发领域，也会有各路大神驻扎在 github 上。今天就教大家一个装逼的方法，让大神给你来贡献代码。不知道此方法后续会不会被刷屏？</p>
-<span id="more"></span>
 
-<p>事情经过是这样的，今天上午，调查一个和 git 账户相关的问题，问题可以简单描述为：</p>
-<blockquote>
-<p>我用 A 邮箱生成的 SSH, 在 commit 和 push 代码的时候，显示的作者名称却是 B 。</p>
-</blockquote>
-<p>但是从对应仓库拉代码和提交更新都没有问题，神不神奇，意不意外？</p>
-<p>google 了一把，发现了以下两条命令：</p>
-<blockquote>
-<p>git config –global user.name 你的用户名<br>git config –global user.email 你的邮箱地址</p>
-</blockquote>
-<p>这两条命令实际上就是定义全局的用户名和邮箱地址，也就是说，一旦设置过，不过你是向 GitHub、GitLab 提交代码，作者名称和邮箱地址显示的都是上面定义的两个。</p>
-<p>回到原先的问题，应该是之前定义了一个全局的 B 作者和邮箱，所以即使你用 A 作者和邮箱生成的 SSH, 递交代码的时候显示的还是 B 作者。</p>
-<p>所以，对于不同的仓库，你可以单独设置, 来区分不同平台的代码仓库，方法也很简单，只需要去掉「–global」即可：</p>
-<blockquote>
-<p>git config user.name 你的用户名<br>git config user.email 你的邮箱地址</p>
-</blockquote>
-<p>说了那么多，装逼的东西在哪里呢？好了，下面开始我的表演。</p>
-<p>先来看下效果：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-ec3f5d2758aeab16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="男神跟我打招呼.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-90f734ef7811f573.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="男神递交的代码记录.png"></p>
-<p>怎么做呢？</p>
-<p>首先，我来修改下账号的用户名和邮箱地址，既然装逼，当然要拿 Android 男神的用户名和邮箱来试试咯。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-7d3b2b74fd29c081.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改用户名和邮箱.png"></p>
-<p>修改完毕，随便修改下工程做 commit 和 push 。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-8dd2634000603039.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="随便递交的代码.png"></p>
-<p>成功后登陆 github 账号查看递交日志，就看到上面这图了。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-ec3f5d2758aeab16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="男神跟我打招呼.png"></p>
-<p>怎么样，神不神奇，惊不惊喜？</p>
-<p>还不赶紧试一把？！</p>
-<p>好了，如果装逼成功的话，顺便来关注一下我的公众号吧，没错，就是「扯淡笔记」</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-8a68a21857b7e31a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="扯淡笔记"></p>
+{% block content %}
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ibrothergang.com/2017/08/24/it-github/" data-id="clr7ftx3g000neipp828ceamc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/08/30/gradle-script-01/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Android Studio 中的 Gradle 配置说明（一）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/08/22/annotation-processing-tool-01/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">聊聊编译时注解（一）</div>
-    </a>
-  
-</nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOP/" rel="tag">AOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 10px;">感悟</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/01/10/%E9%87%8D%E5%90%AF%E5%8D%9A%E5%AE%A2/">重启博客</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/16/vysor%20%E6%9C%80%E6%96%B0%E7%89%88%202.1%20%E7%A0%B4%E8%A7%A3/">Vysor 最新版 2.1.7 破解</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/01/article-list/">公众号文章列表</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/10/bottleneck/">恭喜你，遇到瓶颈了</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/about-death/">重新认识了死亡</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 ibrothergang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

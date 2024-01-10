@@ -1,266 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>分享会的一些总结 | ibrothergang&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以下内容源于公司内部邮件，觉得对大家有一些借鉴意义，整理分享出来">
-<meta property="og:type" content="article">
-<meta property="og:title" content="分享会的一些总结">
-<meta property="og:url" content="http://www.ibrothergang.com/2017/09/12/sum-up-of-speaking/index.html">
-<meta property="og:site_name" content="ibrothergang&#39;s blog">
-<meta property="og:description" content="以下内容源于公司内部邮件，觉得对大家有一些借鉴意义，整理分享出来">
-<meta property="og:locale">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-02520bffbd2cb87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2017-09-12T05:36:24.000Z">
-<meta property="article:modified_time" content="2017-09-12T05:37:24.000Z">
-<meta property="article:author" content="ibrothergang">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2159159-02520bffbd2cb87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-  
-    <link rel="alternate" href="/atom.xml" title="ibrothergang&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  
 
-<meta name="generator" content="Hexo 7.0.0"></head>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ibrothergang&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.ibrothergang.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-sum-up-of-speaking" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/12/sum-up-of-speaking/" class="article-date">
-  <time datetime="2017-09-12T05:36:24.000Z" itemprop="datePublished">2017-09-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      分享会的一些总结
-    </h1>
-  
+{% block page_class %}page-post-detail{% endblock %}
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/2159159-02520bffbd2cb87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分享"></p>
-<blockquote>
-<p>以下内容源于公司内部邮件，觉得对大家有一些借鉴意义，整理分享出来</p>
-</blockquote>
-<span id="more"></span>
 
-<p>前一段时间我们大家轮流做了一些分享，从 7 月 20 日开始，到现在差不多两个月时间，我简单整理了一下<a href="http://xiaoying.tv/">「小影 Android 技术分享归档(编者注：换成官网链接了)」</a>，中间有几个主题可能还没有归档，希望对应的兄弟可以把它补上(包括我自己这边也需要扩展下)。</p>
-<p>之前分享给大家一个链接：<a href="https://mp.weixin.qq.com/s/-bXP2jAcz8M1c9-nElOsJA">「对自己狠一点，开始写作吧」</a>, 里面提到的一些东西相信大家是有共鸣的。</p>
-<blockquote>
-<p>我时常会有这样的感觉： 自己心里觉得对一个技术点已经掌握了， 但是当我试图给别人讲述的时候，发现并不能轻松自如、深入浅出地讲出来。</p>
-<p>这就说明了一个问题： 自认为掌握了，其实并没有真正地掌握， 大脑只是对这个技术建立了一个整体的概念，在一些细节处做了想当然的假设，等到你用语言再来表达的时候发现，哦， 原来这个假设并不完全成立，是有问题的。</p>
-</blockquote>
-<p>不可否认，部分兄弟可能会把这件事情当做一个任务来做，我觉得没关系，当成任务也行，自愿分享也罢，在我看来这些都不是最重要的，最最重要的是通过这件事情，能够得到两个效果：</p>
-<ol>
-<li>演讲者真的掌握了分享的内容；</li>
-<li>听讲者通过分享获得一些收获。</li>
-</ol>
-<p>演讲者通过分享，实现了以上的两个效果，很好，你做到了双赢。单单是演讲者或者听讲者一方获得收获，ok，也还好，这算单赢。最后一种我就不说了，相信不存在我们的小伙伴当中。</p>
-<p>在这几次的分享中，我觉得 RxJava 那次是比较成功的，相信大家应该也有这样的感觉。此处应该给演讲者一点掌声。我简单分析了原因，至少应该有以下几方面吧：</p>
-<p><strong>1. 有 demo 演示</strong><br>不是简单的一份文档讲解，而是有具体的代码，有可以运行的 demo，配有图文说明。可以说是有血有肉的，这样的分享就会显得内容充实生动，既有抽象的代码，又有形象的 demo。</p>
-<p><strong>2. 话题相对来说大家都比较想了解</strong><br>虽然都是跟 Android 内容相关，但是有些分享的话题可能比较片面，但是分享的内容如果不是自己想了解的，可能就没有那么大的兴趣参与进去，演讲者讲的娓娓动听，听讲者也许也只是听了个皮毛。RxJava 这块对大家来说可能都比较想了解，才会有兴趣去听，这样对分享者来说也是一中鼓励。</p>
-<p><strong>3. 大家都比较熟悉部分内容</strong><br>如果只是感兴趣去听，没有对内容有了解的话，那么分享过程中就可能会缺少互动。在 RxJava 的分享中，大家其实都有了一些基本的了解，这样当某个人在分享的时候，相信大家会有一些自己的认知、理解和疑惑，在互动的过程中，听讲座把这些认知、理解和疑惑再反过来投入到分享过程中，才使得整个的分享过程变得充满了活力。内容得到了二次筛选和提炼，这是演讲者和听讲者共同作用的结果。</p>
-<p>RxJava 的分享，我认为具备了以上的 3 个特点，是我们这几次分享中比较成功的一次。其实后面还需要有个步骤，那就是对分享内容的练习，这是加深理解很好的方式。但是相信很多人听过之后就没有然后了。</p>
-<p>不管怎么说，相信大家还是有收获的。平时大家忙，聚在一起聊个天也是很 happy 的一件事，如果再顺便了解点技术，或者解决几个工作上的难题，何乐而不为呢。</p>
-<p>后面的一段时间，我希望能够以 RxJava 的分享作为典型，分享者准备下分享内容（一个月才一次，相信时间上士够的，就是看有没有去准备），听讲者也了解下分享的内容。让后面的分享变得更加有意义，朝着前面提到的两个效果努力！</p>
-<p>周四，老时间，老地点，我们讨论下，不见不散！</p>
-<p>ps：此处推荐下扔物线的微信公众号 : hencoder，我觉得从学习者的角度来说讲的还是挺不错的，大家可以学习下他的写作风格。</p>
+{% block content %}
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ibrothergang.com/2017/09/12/sum-up-of-speaking/" data-id="clr7ftx3i0014eippd3x45y8g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/09/14/team-building/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          团建感想
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/08/30/gradle-script-01/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Android Studio 中的 Gradle 配置说明（一）</div>
-    </a>
-  
-</nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOP/" rel="tag">AOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 10px;">感悟</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/01/10/%E9%87%8D%E5%90%AF%E5%8D%9A%E5%AE%A2/">重启博客</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/16/vysor%20%E6%9C%80%E6%96%B0%E7%89%88%202.1%20%E7%A0%B4%E8%A7%A3/">Vysor 最新版 2.1.7 破解</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/01/article-list/">公众号文章列表</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/10/bottleneck/">恭喜你，遇到瓶颈了</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/about-death/">重新认识了死亡</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 ibrothergang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

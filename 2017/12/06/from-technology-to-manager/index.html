@@ -1,259 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>谈谈技术转管理的一些经历 | ibrothergang&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前面一篇文章开了个新号提到：  在周围的人群中，相信有很大一批同学都和我一样，作为 IT 行业里的码农，干久了，有一些迷茫，有一些惆怅，不知道自己是继续做技术，还是转行当管理，不知道自己以后的路如何更好的走下去。”">
-<meta property="og:type" content="article">
-<meta property="og:title" content="谈谈技术转管理的一些经历">
-<meta property="og:url" content="http://www.ibrothergang.com/2017/12/06/from-technology-to-manager/index.html">
-<meta property="og:site_name" content="ibrothergang&#39;s blog">
-<meta property="og:description" content="前面一篇文章开了个新号提到：  在周围的人群中，相信有很大一批同学都和我一样，作为 IT 行业里的码农，干久了，有一些迷茫，有一些惆怅，不知道自己是继续做技术，还是转行当管理，不知道自己以后的路如何更好的走下去。”">
-<meta property="og:locale">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-a53642746d3a91db.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2017-12-06T14:50:08.000Z">
-<meta property="article:modified_time" content="2018-06-28T13:42:54.888Z">
-<meta property="article:author" content="ibrothergang">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2159159-a53642746d3a91db.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-  
-    <link rel="alternate" href="/atom.xml" title="ibrothergang&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  
 
-<meta name="generator" content="Hexo 7.0.0"></head>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ibrothergang&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.ibrothergang.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-from-technology-to-manager" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/06/from-technology-to-manager/" class="article-date">
-  <time datetime="2017-12-06T14:50:08.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      谈谈技术转管理的一些经历
-    </h1>
-  
+{% block page_class %}page-post-detail{% endblock %}
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/2159159-a53642746d3a91db.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Teamwork"><br>前面一篇文章<a href="http://www.jianshu.com/p/b646623b2aa1">开了个新号</a>提到：</p>
-<blockquote>
-<p>在周围的人群中，相信有很大一批同学都和我一样，作为 IT 行业里的码农，干久了，有一些迷茫，有一些惆怅，不知道自己是继续做技术，还是转行当管理，不知道自己以后的路如何更好的走下去。”</p>
-</blockquote>
-<span id="more"></span>
 
-<p>这篇文章，从我的角度来谈谈一个程序员从技术转管理的过程，不一定适合你，但是肯定有可以借鉴的地方。</p>
-<p>其实我不太喜欢用「管理者」这个词，在我看来，大家都是一个团队的，只是分工不同，没有存在着职位的上下级关系，你是团队中的一员，他也是团队中的一员，职责不同，仅此而已。所以后面我更多的称自己为 TL(team leader) ，做的是大部分工作偏管理而已。</p>
-<p>说一下我从一个工程师到 TL 的转变过程。</p>
-<p>刚开始的时候，公司 10+ 人，那时候的管理成本是比较低的。作为一家创业公司，初期的人员本身就是 CEO 亲自挑选面试的，这批人都是和公司目标和使命一致的人。一旦目标一致，大方向不错，管理者就不需要经常去修正目标。</p>
-<p>慢慢的，公司逐渐的扩张，人员从 10+ 个变成了 100+ ，公司的场地也从一个复式的小民房变成了上千平的写字楼。一个管理者最佳的团队人数是 7 人左右，按这个标准出发。后面就有很多的一线技术人员逐渐脱离了技术岗，慢慢的开始兼职一些管理上的事务，这个转变也是一个循序渐进的过程，我认为经历了下面三个阶段：</p>
-<h1 id="技术-业务管理"><a href="#技术-业务管理" class="headerlink" title="技术&#x2F;业务管理"></a>技术&#x2F;业务管理</h1><p>在一个团队中间，随着时间的推移，总是有一些人在某些方面会比较突出，有可能是业务方面，也有可能是存技术方面。无论是业务还是技术，都会存在一些问题，你开始兼职扮演解决问题的那个人，管理工作开始萌芽。</p>
-<p>虽然大部分的时间还是在 coding，只有团队内部有一些技术难题的时候会找你咨询，你更多的时候可能也是希望自己亲自上阵，三下五除二解决问题，很有成就感对不对。所以这时候可能大家心里更多的认为你是一个方案的提供者和解决者。</p>
-<p>这种情况下你可能更多扮演的是救火员的角色，大家开始慢慢的依赖你，你不断给大家救火，不断给大家提供一些意见和建议，慢慢的形成了一定的领导力。</p>
-<h1 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h1><p>等到大家对业务基本熟悉了之后，技术上的难题也解决的差不多了，产品就进入了稳定迭代的阶段。除非是大版本的更新，一般的小改动团队成员都可以应付，这时候技术上和业务上的述求就变得不是那么迫切，你更多的是从项目管理的角度去做管理。</p>
-<p>你需要去协调保证项目完成的各个环节。你去沟通设计部门按时间出效果图，这样开发才好评估 UI 实现上需要花费的时间。你去了解服务器部门什么时候能够给到 API 的接口文档，什么时候能够联调。测试什么时候有时间，确定好了测试时间后又要回过头去协调开发，确定提测时间。这时候的工作基本上就是在不断的协调各个部门，使得能够保证整个项目能够按照预定的时间节点上线。</p>
-<p>这时候你做的更多的是项目管理的角色，主要的目标是保证项目顺利按时的递交上线。</p>
-<h1 id="团队管理"><a href="#团队管理" class="headerlink" title="团队管理"></a>团队管理</h1><p>随着公司的壮大，团队的人员也在补充。项目也在不断变多，你会发现光你自己一个人会一直处于救火状态了。每天来公司上班都会有一堆的会议在等着你。需求评审会，项目进度会，复盘会议，方案讨论会。你会发现真正 focus 在具体工作上的时间突然变少了，很多的时间花费在各种会议中，特别当突破 7 个人上限的时候，你发现，团队已经快要失去你的掌控了。</p>
-<p>这时候你开始关注整个团队的管理，你需要不断的把项目下放，团队的成长成为了你管理的瓶颈。你需要花更多的时间去了解团队中的成员，哪些是适合承担技术管理的角色的，哪些是合适做项目管理的，哪些是适合将来带团队的，并且慢慢的让这些成员参与到这些管理中，你只有等这些成员慢慢成长了之后，才能够从整体上把握整个团队的发展。</p>
-<p>以上，就是我这些年一直走过来的路，是我的一些切身体验，希望对你有帮助。还是那句话，不一定适用于你，但肯定对你有价值。</p>
+{% block content %}
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ibrothergang.com/2017/12/06/from-technology-to-manager/" data-id="clr7ftx3f000ieippd4f80nom" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/12/07/about-death/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          重新认识了死亡
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/12/01/2017-12-01-about-ibrothergang/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">开了个新的公众号</div>
-    </a>
-  
-</nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOP/" rel="tag">AOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 10px;">感悟</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/01/10/%E9%87%8D%E5%90%AF%E5%8D%9A%E5%AE%A2/">重启博客</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/16/vysor%20%E6%9C%80%E6%96%B0%E7%89%88%202.1%20%E7%A0%B4%E8%A7%A3/">Vysor 最新版 2.1.7 破解</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/01/article-list/">公众号文章列表</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/10/bottleneck/">恭喜你，遇到瓶颈了</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/about-death/">重新认识了死亡</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 ibrothergang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

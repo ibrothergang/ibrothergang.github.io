@@ -1,300 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Android Studio 中的 Gradle 配置说明（一） | ibrothergang&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现在做 Android 开发的，基本上都是在用 AS 打包。相信里面也有不少人对 gradle 的信息不是很清楚，现在记录下，以免遗忘。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android Studio 中的 Gradle 配置说明（一）">
-<meta property="og:url" content="http://www.ibrothergang.com/2017/08/30/gradle-script-01/index.html">
-<meta property="og:site_name" content="ibrothergang&#39;s blog">
-<meta property="og:description" content="现在做 Android 开发的，基本上都是在用 AS 打包。相信里面也有不少人对 gradle 的信息不是很清楚，现在记录下，以免遗忘。">
-<meta property="og:locale">
-<meta property="og:image" content="http://ohlhj8z4i.bkt.clouddn.com/gradle.png">
-<meta property="article:published_time" content="2017-08-30T01:22:51.000Z">
-<meta property="article:modified_time" content="2017-08-30T06:15:51.000Z">
-<meta property="article:author" content="ibrothergang">
-<meta property="article:tag" content="Android">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ohlhj8z4i.bkt.clouddn.com/gradle.png">
-  
-    <link rel="alternate" href="/atom.xml" title="ibrothergang&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  
 
-<meta name="generator" content="Hexo 7.0.0"></head>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ibrothergang&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.ibrothergang.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-gradle-script-01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/30/gradle-script-01/" class="article-date">
-  <time datetime="2017-08-30T01:22:51.000Z" itemprop="datePublished">2017-08-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Android Studio 中的 Gradle 配置说明（一）
-    </h1>
-  
+{% block page_class %}page-post-detail{% endblock %}
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://ohlhj8z4i.bkt.clouddn.com/gradle.png" alt="gradle"><br>现在做 Android 开发的，基本上都是在用 AS 打包。相信里面也有不少人对 gradle 的信息不是很清楚，现在记录下，以免遗忘。</p>
-<span id="more"></span>
 
-<p>先来看一段一般的配置代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">compileSdkVersion <span class="number">25</span></span><br><span class="line">buildToolsVersion <span class="string">&#x27;25.0.0&#x27;</span></span><br><span class="line"></span><br><span class="line">defaultConfig &#123;</span><br><span class="line">    applicationId <span class="string">&quot;com.android.demo&quot;</span></span><br><span class="line">    minSdkVersion <span class="number">14</span></span><br><span class="line">    targetSdkVersion <span class="number">25</span></span><br><span class="line">    versionCode <span class="number">1</span></span><br><span class="line">    versionName <span class="string">&quot;1.0&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+{% block content %}
 
-<p><code>compileSdkVersion</code></p>
-<blockquote>
-<p>用来编译应用的 Android API 版本</p>
-</blockquote>
-<p><code>buildToolsVersion</code></p>
-<blockquote>
-<p>构建工具和编译器使用的版本号</p>
-</blockquote>
-<p><code>minSdkVersion</code></p>
-<blockquote>
-<p>用来配置运行应用的最小 API 级别, 低于该 API 版本的系统会提示无法运行该应用</p>
-</blockquote>
-<p><code>targetSdkVersion</code></p>
-<blockquote>
-<p>用于通知系统，该应用已经在某特定 Android 版本通过测试，从而操作系统不必启用任何向前兼容的行为。这和我们之前看到的 compileSdkVersion 没有任何关系。</p>
-</blockquote>
-<p><code>applicationId</code></p>
-<blockquote>
-<p>该属性覆盖了 manifest 文件中的 packagename。<br> Gradle 作为默认的 Android 构建系统<br>之前<br>packagename 作用</p>
-</blockquote>
-<ol>
-<li>作为一个应用唯一的标志；</li>
-<li>在 R 资源类中被用作包名；</li>
-</ol>
-<blockquote>
-<p>之后</p>
-</blockquote>
-<ol>
-<li>使用 applicationId 作为唯一的标志；</li>
-<li>在 R 资源类中继续被用作包名；</li>
-</ol>
-<blockquote>
-<p>这样的好处是什么呢？<br>假设有这样一个场景，我们要构建一个免费版本和一个付费版本，这两个版本的功能基本类似，区别无非是免费版本的功能受限，付费版本的功能通过购买可以拓展功能。而这两个版本又需要同时在应用市场上线的。</p>
-</blockquote>
-<blockquote>
-<p>以前的做法怎么做呢？</p>
-</blockquote>
-<blockquote>
-<p>以前一般会先出免费版本，之后通过修改 packname，再出一个付费版本。有的人可能会说这不是很简单吗？这里的关键点是一旦你修改 packagename 后，所有引用资源的地方，相应的包名称也需要同时修改。这会对代码比较的时候产生极大的不便。</p>
-</blockquote>
-<blockquote>
-<p>所以 Android 工具团队解耦了即作为唯一标志又作为资源包名这两个功能。这样你构建两个版本的时候，只需要修改 applicationId 就可以，所有的资源的包名都不需要修改。</p>
-</blockquote>
-<p><code>versionCode</code></p>
-<blockquote>
-<p>作为应用市场的版本唯一标识码，一般是从 1 开始，后续的版本更新，versionCode 必须大于之前的。<br>这个对用户一般不可见。<br>这个会覆盖 manifest 文件中对应的属性。</p>
-</blockquote>
-<p><code>versionName</code></p>
-<blockquote>
-<p>版本号。这个一般就是告诉用户我当前的版本号是多少。比如：0.8.0，1.0.1，2.1.11等等。这个对用户是可见的，和 versionCode 没有对应关系。但是一般版本更新的时候 versionName 也会大于之前的。<br>这个会覆盖 manifest 文件中对应的属性。</p>
-</blockquote>
-<p>今天就先到这里，我们下期再见。</p>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ibrothergang.com/2017/08/30/gradle-script-01/" data-id="clr7ftx3g000meipp61h5hnwl" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/09/12/sum-up-of-speaking/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          分享会的一些总结
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/08/24/it-github/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">哟，发现一个程序员装逼方法</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOP/" rel="tag">AOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 10px;">感悟</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/01/10/%E9%87%8D%E5%90%AF%E5%8D%9A%E5%AE%A2/">重启博客</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/16/vysor%20%E6%9C%80%E6%96%B0%E7%89%88%202.1%20%E7%A0%B4%E8%A7%A3/">Vysor 最新版 2.1.7 破解</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/01/article-list/">公众号文章列表</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/10/bottleneck/">恭喜你，遇到瓶颈了</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/about-death/">重新认识了死亡</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 ibrothergang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

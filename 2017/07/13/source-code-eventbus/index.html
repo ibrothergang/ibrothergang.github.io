@@ -1,286 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>源码解析之 EventBus | ibrothergang&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Talk is cheap. Show me the code  前言最近几年，很多优秀的第三方开源代码出现在我们的眼前，为 app 的开发提供了极大的便利，同时也降低了开发的门槛。现在拿几个框架组合下，再加上几个开源库，一个简单的 app 就出来了。所以在很多的简历中，我们总是能找到这样的描述：  熟悉 xxx 框架，熟练运用第三方 xxx 开源库  这个系列，旨在介绍如何运用开源库的基础上">
-<meta property="og:type" content="article">
-<meta property="og:title" content="源码解析之 EventBus">
-<meta property="og:url" content="http://www.ibrothergang.com/2017/07/13/source-code-eventbus/index.html">
-<meta property="og:site_name" content="ibrothergang&#39;s blog">
-<meta property="og:description" content="Talk is cheap. Show me the code  前言最近几年，很多优秀的第三方开源代码出现在我们的眼前，为 app 的开发提供了极大的便利，同时也降低了开发的门槛。现在拿几个框架组合下，再加上几个开源库，一个简单的 app 就出来了。所以在很多的简历中，我们总是能找到这样的描述：  熟悉 xxx 框架，熟练运用第三方 xxx 开源库  这个系列，旨在介绍如何运用开源库的基础上">
-<meta property="og:locale">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8bf2f7a2a276f03e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-5a5f45b6aebb558f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-b5aeb96b4edf7ef7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-c56b1ea5cc677ceb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-fb219149d40a9b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-f3398485f0e69054.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-c9de59cb098f5b86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-bf1f88ea6a97de1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-8239948aedc00fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-e0ea1920f9def3b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2159159-fb219149d40a9b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2017-07-13T15:59:24.000Z">
-<meta property="article:modified_time" content="2017-07-13T16:04:28.000Z">
-<meta property="article:author" content="ibrothergang">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2159159-8bf2f7a2a276f03e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-  
-    <link rel="alternate" href="/atom.xml" title="ibrothergang&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-  
 
-<meta name="generator" content="Hexo 7.0.0"></head>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ibrothergang&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.ibrothergang.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-source-code-eventbus" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/13/source-code-eventbus/" class="article-date">
-  <time datetime="2017-07-13T15:59:24.000Z" itemprop="datePublished">2017-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      源码解析之 EventBus
-    </h1>
-  
+{% block page_class %}page-post-detail{% endblock %}
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/2159159-8bf2f7a2a276f03e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-<blockquote>
-<p>Talk is cheap. Show me the code</p>
-</blockquote>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近几年，很多优秀的第三方开源代码出现在我们的眼前，为 app 的开发提供了极大的便利，同时也降低了开发的门槛。现在拿几个框架组合下，再加上几个开源库，一个简单的 app 就出来了。所以在很多的简历中，我们总是能找到这样的描述：</p>
-<blockquote>
-<p>熟悉 xxx 框架，熟练运用第三方 xxx 开源库</p>
-</blockquote>
-<p>这个系列，旨在介绍如何运用开源库的基础上，对这些开源库进行讲解。</p>
-<p>由于一般流行的开源库更新的速度都不慢，所以我们这次选取的一般是他最简的版本。但是简单归简单，核心思想还是要有的。相信大家在掌握了核心的思想后，一些旁枝末节就可以顺理成章的理解了。</p>
-<p>我们很多的时候往往是只见森林不见树。对于一些几千行甚至几万行代码的开源库不知道从何下手，这时候不如想想是不是可以把不必要的部分先去掉，留下核心的部分，这样理解起来相对就简单对了。而且只要掌握了核心的部分，其他的部分理解起来相对就容易多了。</p>
-<p>好了，不多说，这次我们先拿 eventbus 开刀。</p>
-<span id="more"></span>
 
-<h3 id="什么是EventBus"><a href="#什么是EventBus" class="headerlink" title="什么是EventBus"></a>什么是EventBus</h3><p>我们在开发的过程中，免不了需要在各个页面间传递消息。除了最先想到的 Android 四大组件之一的 broadcast 之外，EventBus 应该是我们目前使用最多的通信模块了。如果你没有使用过 EventBus，那么使用广播可能觉得还行，但是一旦你使用过 EventBus，就会觉得使用广播相对来说比较麻烦而且效率也不高。<br>EventBus 大大的简化了应用程序内部各组件间，组件和后台线程之间的通信。所以最近一年 EventBus 非常流行，甚至到了滥用的地步。</p>
-<p>好了，废话不多说，直接上代码。</p>
-<p>最新的 EventBus 的 release 版本为 V3.0.0。但是为了竟可能简单的抓住 EventBus 的核心思想，本文以 V1.0.1 版本为基础，再次进行了削减，力求以最少的代码展示最核心的内容。其他的无非是在核心功能上做的扩展。</p>
-<p>demo 工程很简单，总共只有 4 个 java 文件，但是用来说明核心原理已经足够了，其中核心的类是 EventBusLite。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-5a5f45b6aebb558f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="工程结构"></p>
-<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><h4 id="定义事件类"><a href="#定义事件类" class="headerlink" title="定义事件类"></a>定义事件类</h4><p>这里直接使用 AnyEvent 作为任意事件的代表。<br><img src="http://upload-images.jianshu.io/upload_images/2159159-b5aeb96b4edf7ef7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="事件类"></p>
-<h4 id="注册订阅事件"><a href="#注册订阅事件" class="headerlink" title="注册订阅事件"></a>注册订阅事件</h4><p>如下所示，这里使用 register 方法进行订阅事件的注册，区别的地方在于增加了一个 callbackMethodName 的参数，用于指定接收到事件后的处理方法，这块再后面的源码解析中会讲到。<br><img src="http://upload-images.jianshu.io/upload_images/2159159-c56b1ea5cc677ceb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注册事件"></p>
-<h4 id="发送订阅事件"><a href="#发送订阅事件" class="headerlink" title="发送订阅事件"></a>发送订阅事件</h4><p>直接调用 post 方法，不再赘述。<br><img src="http://upload-images.jianshu.io/upload_images/2159159-fb219149d40a9b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="发送事件"></p>
-<h3 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h3><h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><p>采用的是最简单的单例模式。<br><img src="http://upload-images.jianshu.io/upload_images/2159159-f3398485f0e69054.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="构造方法"></p>
-<h4 id="注册方法"><a href="#注册方法" class="headerlink" title="注册方法"></a>注册方法</h4><p>这里对 register 函数进行了改造，第二个参数在源代码中是没有的，onEvent 方法在源代码中是直接以静态字符串的形式存在的，这里为了大家便于理解和调试，所以单独提取出来作为一个入参。</p>
-<p>但是这个参数不是随便写的，eventbuslite 中会通过反射机制查找当前注册的类中是否存在该名称所对应的方法。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-c9de59cb098f5b86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注册方法"></p>
-<p>####找到订阅方法<br>findSubscriberMethods 方法找出一个 subscriberMethods 的集合。也就是传进来的订阅者的订阅方法，然后遍历订阅者中存在的方法，找到匹配后加入到集合中去。</p>
-<p>事件的对象为了方便，代码中直接写死去方法中的第一个参数。</p>
-<p>下面就来查看该方法的具体实现：<br><img src="http://upload-images.jianshu.io/upload_images/2159159-bf1f88ea6a97de1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="找到订阅方法"></p>
-<h4 id="开始订阅"><a href="#开始订阅" class="headerlink" title="开始订阅"></a>开始订阅</h4><p>subscribe 方法会根据 subscriber 订阅者和 subscriberMethod 订阅方法创建一个 Subscription 订阅对象，对象中存放的是订阅者和订阅方法。<br>subscriptionsByEventClass 讲事件和订阅对象结合起来。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-8239948aedc00fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开始订阅"></p>
-<h4 id="搜索订阅事件"><a href="#搜索订阅事件" class="headerlink" title="搜索订阅事件"></a>搜索订阅事件</h4><p>findEventClasses 通过事件找到订阅者。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2159159-e0ea1920f9def3b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="搜索定义事件"></p>
-<h4 id="发送事件"><a href="#发送事件" class="headerlink" title="发送事件"></a>发送事件</h4><p>根据事件查找所有的订阅者，并将事件分发给他们。<br><img src="http://upload-images.jianshu.io/upload_images/2159159-fb219149d40a9b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="发送事件"></p>
-<p>好了，算是流水账式的记了一遍。就像我开头提到的：Talk is cheap. Show me the code。</p>
-<p>要理解其中的实现原理，还是直接看源码吧。觉得好的顺便 star 下。</p>
-<p><a href="https://github.com/brothergang/DemoEventBus">源码地址</a></p>
+{% block content %}
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ibrothergang.com/2017/07/13/source-code-eventbus/" data-id="clr7ftx3i0012eippca6k9nc1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/08/22/annotation-processing-tool-01/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          聊聊编译时注解（一）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/07/13/the-hexo-commonly-used-commonds/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">博客更新常用命令</div>
-    </a>
-  
-</nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOP/" rel="tag">AOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%84%9F%E6%82%9F/" rel="tag">感悟</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 10px;">总结</a> <a href="/tags/%E6%84%9F%E6%82%9F/" style="font-size: 10px;">感悟</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/01/10/%E9%87%8D%E5%90%AF%E5%8D%9A%E5%AE%A2/">重启博客</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/16/vysor%20%E6%9C%80%E6%96%B0%E7%89%88%202.1%20%E7%A0%B4%E8%A7%A3/">Vysor 最新版 2.1.7 破解</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/01/article-list/">公众号文章列表</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/10/bottleneck/">恭喜你，遇到瓶颈了</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/about-death/">重新认识了死亡</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2024 ibrothergang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
